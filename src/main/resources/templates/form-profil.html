@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/profil.css">
+    <title>Form Profil</title>
+</head>
+<body>
+    <script>
+        function show_date()
+        {
+            alert("hello");
+        }
+    </script>
+    <div id="first">
+        <form action="send" method="post">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom"><br>
+            <label for="prenom">Prenom</label>
+            <input type="text" name="prenom" id="prenom"><br>
+            <label for="dateDeNaissance">Date de naissance</label>
+            <input type="date" name="dateDeNaissance" id="dateDeNaissance" required><br>
+            <label for="sexe">sexe</label>
+            <select name="sexe" id="sexe">
+                <option id="M">Masculin</option>
+                <option id="F">Feminin</option>
+            </select><br>
+            <label for="loisirs">Loisirs</label>
+            <input type="text" name="loisirs" id="loisirs"><br>
+            <label for="metierDuPere">Metier du pere</label>
+            <input type="text" name="metierDuPere" id="metierDuPere"><br>
+            <label for="metierDeLaMere"> Metier de la mere</label>
+            <input type="text" name="metierDeLaMere" id="metierDeLaMere"><br>
+            <label for="religion">Religion</label>
+            <select name="religion" id="religion">
+                <option value="1">Chretienne</option>
+                <option value="2">Islamique</option>
+            </select><br>
+            <label for="sport">Sport</label>
+            <input type="text" name="sport" id="sport"><br>
+            <!-- Other form fields -->
+            <!-- <div th:if="${#fields.hasErrors('dateDeNaissance')}">
+                <p th:errors="*{dateDeNaissance}"></p>
+            </div> -->
+            <!-- <button type="submit" id="envoyer">send</button>     -->
+            <button type="submit" onclick="show_date()" id="send">valider</button>
+        </form>
+    </div>
+</body>
+</html>
