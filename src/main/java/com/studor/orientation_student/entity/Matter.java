@@ -1,6 +1,8 @@
 package com.studor.orientation_student.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
@@ -8,13 +10,22 @@ import jakarta.persistence.ManyToOne;
 public class Matter 
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nom;
     private int coef;
     private double notes;
-    
+
     @ManyToOne
     private NotesReport notesReport;
     
+    public Matter(String nom, int coef, double notes, NotesReport notesReport) {
+        this.nom = nom;
+        this.coef = coef;
+        this.notes = notes;
+        this.notesReport = notesReport;
+    }
+
     public double getNotes() {
         return notes;
     }

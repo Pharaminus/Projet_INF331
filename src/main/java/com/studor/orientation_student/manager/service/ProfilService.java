@@ -15,21 +15,9 @@ public class ProfilService {
     @Autowired
     private ProfilRepository appRepo;
 
-    // public void create(Profil profil){
-    //     appRepo.save(profil);
-    // }
-
     public List<Profil> read(){
         List<Profil> list = new ArrayList<>();
         appRepo.findAll().forEach(list::add);
         return list;
     }
-
-    // public void update(Profil profil){
-    //     appRepo.save(profil);
-    // }
-
-    // public void delete(long id){
-    //     appRepo.deleteById(id);
-    // }
 }

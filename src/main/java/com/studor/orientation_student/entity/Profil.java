@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,10 +27,21 @@ public class Profil {
     private String religion;
     private String sport;
 
+    @OneToOne
+    @JoinColumn(name = "jobs_id")
+    private Jobs jobs;
+
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @OneToOne
+    @JoinColumn(name = "report_id")
+    private NotesReport notesReport;
+
     public String getNom() {
         return nom;
     }
-
     public void setNom(String nom) {
         this.nom = nom;
     }

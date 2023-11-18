@@ -17,20 +17,20 @@ public class NotesReport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String mention;
-    private String filiaire;
+    private String Type;
     private double moyenne;
-
-    public NotesReport(){}
-    public NotesReport(String mention, String filiaire, double moyenne, List<Matter> matiere) {
-        this.mention = mention;
-        this.filiaire = filiaire;
-        this.moyenne = moyenne;
-        this.matiere = matiere;
-    }
 
     @OneToMany(mappedBy = "notesReport", cascade = CascadeType.ALL)
     // @JoinColumn(name = "matiere")
     private List<Matter> matiere;
+
+    public NotesReport(){}
+    public NotesReport(String mention, String Type, double moyenne, List<Matter> matiere) {
+        this.mention = mention;
+        this.Type = Type;
+        this.moyenne = moyenne;
+        this.matiere = matiere;
+    }
 
     public double getNotes() {
         return this.moyenne;
@@ -49,10 +49,10 @@ public class NotesReport {
     }
 
     public String getType() {
-        return this.filiaire;
+        return this.Type;
     }
 
-    public void setType(String filiaire) {
-        this.filiaire = filiaire;
+    public void setType(String Type) {
+        this.Type = Type;
     }
 }
