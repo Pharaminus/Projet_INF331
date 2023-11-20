@@ -35,7 +35,6 @@ public class NotesReport {
     public double getNotes() {
         return this.moyenne;
     }
-
     public void setNotes(double moyenne) {
         this.moyenne = moyenne;
     }
@@ -43,7 +42,6 @@ public class NotesReport {
     public String getMention() {
         return this.mention;
     }
-
     public void setMention(String mention) {
         this.mention = mention;
     }
@@ -51,8 +49,21 @@ public class NotesReport {
     public String getType() {
         return this.Type;
     }
-
     public void setType(String Type) {
         this.Type = Type;
+    }
+
+    public double getMoyenne() {
+        return moyenne;
+    }
+    public void setMoyenne(double moyenne) {
+        this.moyenne = moyenne;
+    }
+
+    public List<Matter> getMatiere() {
+        return matiere;
+    }
+    public void setMatiere(List<Matter> matiere) {
+        this.matiere = matiere;
     }
 }

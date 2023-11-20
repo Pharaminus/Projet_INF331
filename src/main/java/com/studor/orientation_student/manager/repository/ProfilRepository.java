@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.studor.orientation_student.entity.Profil;
 
-import weka.core.Instances;
-
 
 @Repository
 public interface ProfilRepository extends JpaRepository<Profil, Long>{
-    Instances getInstancesFromDatabase();
+    double findNotesByNotesReportMatterId(Long id);
+    String findNomByCategoryId(Long id);
+    String findNomByJobsId(Long id);
 }

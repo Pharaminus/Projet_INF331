@@ -13,11 +13,11 @@ import com.studor.orientation_student.manager.repository.ProfilRepository;
 public class ProfilService {
     
     @Autowired
-    private ProfilRepository appRepo;
+    private ProfilRepository profilRepo;
 
     public List<Profil> read(){
         List<Profil> list = new ArrayList<>();
-        appRepo.findAll().forEach(list::add);
+        profilRepo.findAll().forEach(list::add);
         return list;
     }
 }

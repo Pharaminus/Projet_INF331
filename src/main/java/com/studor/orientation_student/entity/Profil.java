@@ -49,7 +49,6 @@ public class Profil {
     public String getPrenom() {
         return prenom;
     }
-
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
@@ -57,7 +56,6 @@ public class Profil {
     public LocalDate getDateDeNaissance() {
         return dateDeNaissance;
     }
-
     public void setDateDeNaissance(LocalDate dateDeNaissance) {
         this.dateDeNaissance = dateDeNaissance;
     }
@@ -65,7 +63,6 @@ public class Profil {
     public String getSexe() {
         return sexe;
     }
-
     public void setSexe(String sexe) {
         this.sexe = sexe;
     }
@@ -73,7 +70,6 @@ public class Profil {
     public String getLoisirs() {
         return loisirs;
     }
-
     public void setLoisirs(String loisirs) {
         this.loisirs = loisirs;
     }
@@ -81,7 +77,6 @@ public class Profil {
     public String getMetierDuPere() {
         return metierDuPere;
     }
-
     public void setMetierDuPere(String metierDuPere) {
         this.metierDuPere = metierDuPere;
     }
@@ -89,7 +84,6 @@ public class Profil {
     public String getMetierDeLaMere() {
         return metierDeLaMere;
     }
-
     public void setMetierDeLaMere(String metierDeLaMere) {
         this.metierDeLaMere = metierDeLaMere;
     }
@@ -97,7 +91,6 @@ public class Profil {
     public String getReligion() {
         return religion;
     }
-
     public void setReligion(String religion) {
         this.religion = religion;
     }
@@ -105,9 +98,29 @@ public class Profil {
     public String getSport() {
         return sport;
     }
-
     public void setSport(String sport) {
         this.sport = sport;
+    }
+
+    public Jobs getJobs() {
+        return jobs;
+    }
+    public void setJobs(Jobs jobs) {
+        this.jobs = jobs;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public NotesReport getNotesReport() {
+        return notesReport;
+    }
+    public void setNotesReport(NotesReport notesReport) {
+        this.notesReport = notesReport;
     }
 
 }
