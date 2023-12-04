@@ -8,7 +8,7 @@ import com.studor.orientation_student.entity.Profil;
 
 @Repository
 public interface ProfilRepository extends JpaRepository<Profil, Long>{
-    double findNotesByNotesReportMatterId(Long id);
-    String findNomByCategoryId(Long id);
-    String findNomByJobsId(Long id);
+    // double findNotesByNotesReportMatterId(Long id);
+    // String findNomByCategoryId(Long id);
+    // String findNomByJobsId(Long id);
 }
