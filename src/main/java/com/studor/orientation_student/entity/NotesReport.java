@@ -66,4 +66,10 @@ public class NotesReport {
     public void setMatiere(List<Matter> matiere) {
         this.matiere = matiere;
     }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

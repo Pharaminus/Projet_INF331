@@ -20,12 +20,6 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Jobs> metier;
-    
-    public Category(String nom, String description, List<Jobs> metier) {
-        this.nom = nom;
-        this.description = description;
-        this.metier = metier;
-    }
 
     public String getDescription() {
         return description;
@@ -39,5 +33,21 @@ public class Category {
     }
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Jobs> getMetier() {
+        return metier;
+    }
+
+    public void setMetier(List<Jobs> metier) {
+        this.metier = metier;
     }
 }

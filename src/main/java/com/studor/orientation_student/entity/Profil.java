@@ -122,5 +122,10 @@ public class Profil {
     public void setNotesReport(NotesReport notesReport) {
         this.notesReport = notesReport;
     }
-
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

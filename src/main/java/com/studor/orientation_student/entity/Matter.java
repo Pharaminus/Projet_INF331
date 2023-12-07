@@ -18,13 +18,6 @@ public class Matter
 
     @ManyToOne
     private NotesReport notesReport;
-    
-    public Matter(String nom, int coef, double notes, NotesReport notesReport) {
-        this.nom = nom;
-        this.coef = coef;
-        this.notes = notes;
-        this.notesReport = notesReport;
-    }
 
     public double getNotes() {
         return notes;
@@ -48,5 +41,21 @@ public class Matter
 
     public void setCoef(int coef) {
         this.coef = coef;
+    }
+
+    public NotesReport getNotesReport() {
+        return notesReport;
+    }
+
+    public void setNotesReport(NotesReport notesReport) {
+        this.notesReport = notesReport;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

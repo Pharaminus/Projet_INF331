@@ -21,12 +21,6 @@ public class User {
     @JoinColumn(name = "profil_id")
     private Profil profil;
 
-    public User(String email, String nom, String motDePasse) {
-        this.email = email;
-        this.nom = nom;
-        this.motDePasse = motDePasse;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -45,5 +39,21 @@ public class User {
     }
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Profil getProfil() {
+        return profil;
+    }
+
+    public void setProfil(Profil profil) {
+        this.profil = profil;
     }
 }

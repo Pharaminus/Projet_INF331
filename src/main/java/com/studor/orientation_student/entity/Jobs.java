@@ -22,14 +22,6 @@ public class Jobs {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Jobs(String nom, String description, int duree_formation, Long salaire, Category category) {
-        this.nom = nom;
-        this.description = description;
-        this.duree_formation = duree_formation;
-        this.salaire = salaire;
-        this.category = category;
-    }
-
     public int getDuree_formation() {
         return duree_formation;
     }
@@ -63,5 +55,17 @@ public class Jobs {
     }
     public void setSalaire(Long salaire) {
         this.salaire = salaire;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
