@@ -69,7 +69,7 @@ public class WekaClassify
         if (naiveBayesAccuracy > bestAccuracy) {
             bestClassifier = naiveBayes;
             bestAccuracy = naiveBayesAccuracy;
-            System.out.println(bestAccuracy);
+            System.out.println("Accuracy: "+ bestAccuracy + "\n Algorithm: " + bestClassifier);
         }
 
         // Decision Tree classifier (J48)
@@ -79,7 +79,7 @@ public class WekaClassify
         if (decisionTreeAccuracy > bestAccuracy) {
             bestClassifier = decisionTree;
             bestAccuracy = decisionTreeAccuracy;
-            System.out.println(bestAccuracy);
+            System.out.println("Accuracy: "+ bestAccuracy + "\n Algorithm: " + bestClassifier);
         }
 
         // Logistic Regression classifier
@@ -89,7 +89,7 @@ public class WekaClassify
         if (logisticRegressionAccuracy > bestAccuracy) {
             bestClassifier = logisticRegression;
             bestAccuracy = logisticRegressionAccuracy;
-            System.out.println(bestAccuracy);
+            System.out.println("Accuracy: "+ bestAccuracy + "\n Algorithm: " + bestClassifier);
         }
 
         return bestClassifier;
