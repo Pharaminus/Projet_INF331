@@ -1,12 +1,16 @@
-package com.studor.orientation_student.entity;
+package com.studor.orientation_student.entity.profilesuggestion;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import com.studor.orientation_student.entity.establishmentsuggestion.Establishment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -38,6 +42,13 @@ public class Profil {
     @OneToOne
     @JoinColumn(name = "report_id")
     private NotesReport notesReport;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "profil")
+    private List<Establishment> establishments;
 
     public String getNom() {
         return nom;
@@ -127,5 +138,17 @@ public class Profil {
     }
     public void setId(Long id) {
         this.id = id;
+    }
+    public List<Establishment> getEstablishments() {
+        return establishments;
+    }
+    public void setEstablishments(List<Establishment> establishments) {
+        this.establishments = establishments;
+    }
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
     }
 }

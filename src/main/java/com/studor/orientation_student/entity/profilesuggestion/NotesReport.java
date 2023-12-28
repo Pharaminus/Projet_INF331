@@ -1,4 +1,4 @@
-package com.studor.orientation_student.entity;
+package com.studor.orientation_student.entity.profilesuggestion;
 
 import java.util.List;
 
