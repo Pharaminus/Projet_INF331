@@ -1,8 +1,7 @@
-package com.studor.orientation_student.manager.service.Implements;
+package com.studor.orientation_student.manager.service;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
@@ -15,7 +14,8 @@ import weka.core.Instances;
 
 public class WekaClassify 
 {
-    public static void trainModel(String arffFilePath) throws Exception 
+    public static String trainModel(String arffFilePath, double mathNotes, double phyNotes, double infoNotes, double mean) 
+    throws Exception 
     {
         Instances trainingData = new Instances(new java.io.FileReader(arffFilePath));
 
@@ -38,7 +38,7 @@ public class WekaClassify
         classifier.buildClassifier(trainData);
 
         // Prompt the user to enter values for the new data instance
-        Instances newData = createNewDataInstance(arffFilePath);
+        Instances newData = createNewDataInstance(arffFilePath, mathNotes, phyNotes, infoNotes, mean);
 
         // Set the class attribute index (if not already set) and the dataset of the new
         // instance
@@ -54,6 +54,8 @@ public class WekaClassify
 
         // Print the predicted class
         System.out.println("Predicted class: " + predictedClassValue);
+
+        return predictedClassValue;
     }
 
     private static Classifier chooseBestClassifier(Instances data) throws Exception {
@@ -95,20 +97,11 @@ public class WekaClassify
         return bestClassifier;
     }
 
-    private static Instances createNewDataInstance(String arffFilePath) throws FileNotFoundException, IOException {
+    private static Instances createNewDataInstance(String arffFilePath, double mathNotes, double phyNotes, double infoNotes, double mean)
+    throws FileNotFoundException, IOException {
         
         Instances newData = new Instances(new java.io.FileReader(arffFilePath));
         newData.setClassIndex(newData.numAttributes() - 1);
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the value for math_notes: ");
-        double mathNotes = scanner.nextDouble();
-        System.out.print("Enter the value for phy_notes: ");
-        double phyNotes = scanner.nextDouble();
-        System.out.print("Enter the value for info_notes: ");
-        double infoNotes = scanner.nextDouble();
-        System.out.print("Enter the value for mean: ");
-        double mean = scanner.nextDouble();
 
         Instance newInstance = new DenseInstance(5);
         newInstance.setValue(0, mathNotes);
@@ -117,8 +110,6 @@ public class WekaClassify
         newInstance.setValue(3, mean);
         newInstance.setDataset(newData);
         newData.add(newInstance);
-
-        scanner.close();
 
         return newData;
     }

@@ -1,4 +1,4 @@
-package com.studor.orientation_student.entity.profilesuggestion;
+package com.studor.orientation_student.entity.profilejobprediction;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

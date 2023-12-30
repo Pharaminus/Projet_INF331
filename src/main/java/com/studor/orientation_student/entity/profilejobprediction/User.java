@@ -1,5 +1,6 @@
-package com.studor.orientation_student.entity.profilesuggestion;
+package com.studor.orientation_student.entity.profilejobprediction;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +18,7 @@ public class User {
     private String nom;
     private String motDePasse;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profil_id")
     private Profil profil;
 

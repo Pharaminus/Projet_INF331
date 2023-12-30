@@ -1,4 +1,4 @@
-package com.studor.orientation_student.entity.profilesuggestion;
+package com.studor.orientation_student.entity.profilejobprediction;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -43,8 +43,7 @@ public class Profil {
     @JoinColumn(name = "report_id")
     private NotesReport notesReport;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "profil")
     private User user;
 
     @OneToMany(mappedBy = "profil")

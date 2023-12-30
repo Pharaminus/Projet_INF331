@@ -1,4 +1,4 @@
-package com.studor.orientation_student.entity.profilesuggestion;
+package com.studor.orientation_student.entity.profilejobprediction;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,18 +15,29 @@ public class Jobs {
     private Long id;
     private String nom;
     private String description;
-    private int duree_formation;
+    private int dureeFormation;
     private Long salaire;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public int getDuree_formation() {
-        return duree_formation;
+    public Jobs(String nom, String description, int dureeFormation, Long salaire, Category category) {
+        this.nom = nom;
+        this.description = description;
+        this.dureeFormation = dureeFormation;
+        this.salaire = salaire;
+        this.category = category;
     }
-    public void setDuree_formation(int duree_formation) {
-        this.duree_formation = duree_formation;
+
+    public Jobs() {
+    }
+
+    public int getDureeFormation() {
+        return dureeFormation;
+    }
+    public void setDureeFormation(int dureeFormation) {
+        this.dureeFormation = dureeFormation;
     }
 
     public String getNom() {
@@ -41,13 +52,6 @@ public class Jobs {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCategory() {
-        return category.getNom();
-    }
-    public void setCategory(String nom) {
-        this.category.setNom(nom);
     }
 
     public Long getSalaire() {
@@ -67,5 +71,8 @@ public class Jobs {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+    public Category getCategory() {
+        return category;
     }
 }
