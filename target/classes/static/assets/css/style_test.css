@@ -1,0 +1,31 @@
+
+
+
+#first{
+    margin-top: 10%;
+    padding-top: 5%;
+    margin-left: 25%;
+    width: 50%;
+    height: 400px;
+    display: block;
+    background-color: rgb(19, 19, 75);
+    color: aliceblue;
+    font-weight: bold;
+}
+form{
+    text-align: center;
+}
+input, select{
+    margin-bottom: 10px;
+    background-color: rgb(223, 218, 218);
+}
+label{
+    display: inline-block;
+    width: 20%;
+    margin-right: 4%;
+    text-align: left;
+}
+input, select{
+    width: 20%;
+    
+}

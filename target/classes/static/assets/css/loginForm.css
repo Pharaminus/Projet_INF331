@@ -1,0 +1,151 @@
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* background-color: blueviolet; */
+    background-image: url('/assets/image/icone/istockphoto-1401470512-1024x1024.jpg');
+
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(41, 40, 42, 0.603);
+
+}
+
+#logo{
+    font-size: 110%;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+#conten-form {
+    width: 90%;
+    transform: scale(0.8);
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    /* margin-top: 3%; */
+}
+
+#presentation-left {
+   width: 40%;
+   height: 100vh;
+    /* background-color: rgba(12, 6, 40, 0.859); */
+    /* background-image: url('/assets/image/icone/istockphoto-1135341047-1024x1024.jpg'); */
+
+    background-repeat: no-repeat;
+
+    /* opacity: 0.4; */
+    margin: 0;
+    padding: 0;
+    
+}
+
+#img-presentation-left{
+    height: 100%;
+    width: 100%;
+}
+
+#presentation-rigth {
+    width: 60%;
+    height: 100vh;
+    background-color: rgba(58, 4, 116, 0.942);
+    /* transform: skewX(-10deg) ; */
+    padding-top: 6%;
+
+}
+#form-login{
+
+    padding: 10%;
+    height: 90%;
+    width: 70%;
+    margin-left: 15%;
+    transform: scale(1);
+    background-color: rgb(213, 230, 246);
+    padding-top: 3%;
+    text-align: center;
+    font-size: 120%;
+    border: 1px solid gray;
+
+}
+
+#icone{
+    /* border: solid gray 2px; */
+    height: 30%;
+    width: 80%;
+    transform: scale(0.9);
+}
+
+
+.input-element{
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+    /* border: 2px solid rgb(65, 62, 62); */
+    margin-right: 15%;
+    border-radius: 5px;
+}
+
+#input-element-pass{
+    margin-top: 5%;
+}
+
+#input-element-email{
+    margin-top: 5%;
+}
+#label-element{
+    /* border: 2px solid gray; */
+    /* border-radius: 5px; */
+
+    border-right: 1px solid rgb(111, 109, 109);
+    background-color: rgba(192, 192, 192, 0);
+    /* background-image: url('/assets/image/icone/metro_email_11435.png'); */
+    width: 20%;
+    /* height: 100%; */
+    height: 90%;
+
+    font-size: 150%;
+    text-align: center;
+    padding-top: 0%;
+}
+.label-img{
+    margin-top: 10%;
+    height: 80%;
+    width: 90%;
+    margin-right: 3%;
+}
+
+.input-filed{
+    width: 110%;
+    height: 90%;
+    border: none;
+    text-align: center;
+    font-size: 130%;
+    list-style: none;
+}
+
+#bouton{
+    margin-bottom: 4%;
+    height: 15%;
+    /* border: solid gray; */
+    margin-top: 4%;
+}
+
+#bouton-login{
+    height: 80%;
+    width: 40%;
+    background-color: rgb(76, 0, 255);
+    border-radius: 8px;
+    font-size: 120%;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+#bouton-login:hover{
+    background-color: rgb(59, 3, 189);
+    
+}

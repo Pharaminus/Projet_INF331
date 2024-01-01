@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style_test.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        private long id;
+    private String nom;
+    private String prenom;
+    private Date dateDeNaissance;
+    private String sexe;
+    private String loisirs;
+    private String metierDuPere;
+    private String metierDeLaMere;
+    private String religion;
+    private String sport;
+    -->
+    <div id="first">
+        <form method="post" action="send" >
+            <label for="nom">Nom</label>
+            <input type="text" id="nom"><br>
+            <label for="prenom">Prenom</label>
+            <input type="text" id="prenom"><br>
+            <label for="dateDeNaissance">Date de naissance</label>
+            <input type="date" id="dateDeNaissance"><br>
+            <label for="sexe">sexe</label>
+            <select name="sexe" id="sexe"><br>
+                <option id="M">Masculin</option>
+                <option id="F">Feminin</option>
+            </select><br>
+            <label for="loisirs">Loisirs</label>
+            <input type="text" id="loisirs"><br>
+            <label for="metierDuPere">Metier du pere</label>
+            <input type="text" id="metierDuPere"><br>
+            <label for="metierDeLaMere"> Metier de la mere</label>
+            <input type="text" id="metierDeLaMere"><br>
+            <label for="religion">Religion</label>
+            <select name="religion" id="religion">
+                <option value="1">Chretienne</option>
+                <option value="2">Islamique</option>
+            </select><br>
+            <label for="sport">Sport</label>
+            <input type="text" id="sport"><br>
+            <!-- <button type="submit" id="envoyer">send</button>     -->
+            <input type="submit" value="valider">
+        </form>
+    </div>
+</body>
+</html>
