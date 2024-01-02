@@ -1,6 +1,7 @@
 package com.studor.orientation_student.entities.suggestionCourEntities;
 
-import com.studor.orientation_student.entities.User;
+
+import com.studor.orientation_student.entity.profilejobprediction.User;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

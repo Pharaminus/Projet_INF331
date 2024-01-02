@@ -3,19 +3,17 @@ package com.studor.orientation_student.manager.controller;
 import java.io.File;
 import java.util.UUID;
 
-import net.sourceforge.tess4j.Tesseract;
-import net.sourceforge.tess4j.TesseractException;
+// import net.sourceforge.tess4j.Tesseract;
+// import net.sourceforge.tess4j.TesseractException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.security.access.annotation.Secured;
-// import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.studor.orientation_student.entities.Matter;
-import com.studor.orientation_student.entities.User;
+
+import com.studor.orientation_student.entity.profilejobprediction.Matter;
+import com.studor.orientation_student.entity.profilejobprediction.User;
 import com.studor.orientation_student.manager.repository.MatterRepository;
 import com.studor.orientation_student.manager.repository.UserRepository;
 
@@ -60,7 +58,7 @@ public class AcceuilController {
         // Matter matter = new Matter(matiere.getNom(), matiere.getCoef(), null);
         // System.out.println("===========>" + coef);
         if (nom != "" && coef != null) {
-            Matter matter = new Matter(nom, coef, null);
+            Matter matter = new Matter(nom, coef, null, null);
             matterRepository.save(matter);
         }
         return "formMatiere";
@@ -100,7 +98,7 @@ public class AcceuilController {
             @RequestParam("email") String email, @RequestParam("pass") String pass) {
 
         if (userRepository.findByEmail(email) == null) {
-            User user = new User(email, nom, prenom, pass);
+            User user = new User(email, prenom, pass, null);
             userRepository.save(user);
         }
 

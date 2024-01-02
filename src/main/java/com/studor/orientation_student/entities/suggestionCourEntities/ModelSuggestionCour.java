@@ -1,13 +1,11 @@
 package com.studor.orientation_student.entities.suggestionCourEntities;
 
-import com.studor.orientation_student.entities.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -21,6 +19,12 @@ public class ModelSuggestionCour {
     @OneToOne
     @JoinColumn(name = "nomEmploiTemps", referencedColumnName = "nomEmploiTemps")
     private EmploiTemps emploiTemps;
+
+    public ModelSuggestionCour(String statuProfessionnel, String moyenne, EmploiTemps emploiTemps) {
+        StatuProfessionnel = statuProfessionnel;
+        this.moyenne = moyenne;
+        this.emploiTemps = emploiTemps;
+    }
 
     public ModelSuggestionCour() {
     }

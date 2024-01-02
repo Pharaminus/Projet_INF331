@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.studor.orientation_student.entities.Profil;
-import com.studor.orientation_student.entities.Utilisateur;
 import com.studor.orientation_student.manager.repository.ProfilRepository;
 
 @RestController
@@ -34,9 +32,9 @@ public class ProfilController {
     @GetMapping("/test")
     public String test(){
         
-        Utilisateur utilisateur = new Utilisateur("Ruth" ,"Ruth.com", "ruht237");
+        // Utilisateur utilisateur = new Utilisateur("Ruth" ,"Ruth.com", "ruht237");
         // System.out.println(utilisateur.getNom());
-        return utilisateur.getNom();
+        return "utilisateur.getNom()";
     }
 
 }
