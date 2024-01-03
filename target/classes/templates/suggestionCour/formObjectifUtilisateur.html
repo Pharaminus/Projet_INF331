@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/assets/css/acceuil.css"> -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/test.js"></script>
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .head {
+            height: 12%;
+            /* background-color: rgb(12, 51, 98); */
+            background-color: rgb(65, 18, 108);
+        
+            color: rgb(224, 154, 4);
+            padding-top: 1%;
+            
+        }
+        
+        .logo {
+            border: solid 2px white;
+            height: 60px;
+        
+            width: 60px;
+            transform: rotate(45deg);
+            margin: 0;
+            border-radius: 10%;
+        
+            margin-left: 30%;
+        
+        }
+        
+        .logo span {
+            display: inline-block;
+            transform: rotate(-45deg);
+            margin: 0;
+            padding: 0;
+            margin-top: 25%;
+            text-align: center;
+        }
+        
+        .titre {
+            text-align: left;
+            font-weight: bold;
+            font-size: 200%;
+            font-family:fantasy;
+            /* padding-right: 50%; */
+        }
+        main div{
+            border: 1px solid rgb(42, 42, 58);
+            width: 80%;
+            height: 100px;
+        }
+        label, input{
+            border: solid 1px rgb(54, 64, 154);
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- entete de la page  -->
+    <div class="head">
+        <div class="row">
+            <div class="col-2">
+                <div class="logo"> <span>StudOr</span> </div>
+            </div>
+            <div class="col-10 titre">
+                <span>STUDOR</span>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-block">
+        <form action="/objectif/saveObjectif" method="post">
+            <div id="niveau-field">
+                <label for="dificulte"> Niveau de difficulte</label>
+                <input type="text" name="dificulte" placeholder="niveau">
+                <!-- <input type="radio" name="" id="dificulte1">
+                <input type="radio" name="" id="dificulte2">
+                <input type="radio" name="" id="dificulte3">
+                <input type="radio" name="" id="dificulte4">
+                <input type="radio" name="" id="dificulte5"> -->
+
+            </div>
+            <div id="jour-libre-field">
+                <label for="jour-libre">Jour libre</label>
+                    <input type="text" name="jour-libre" id="">
+                <!-- <div id="jour-block">
+                    <input type="button" value="lundi" class="jour-block" id="jour1" >
+                    <input type="button" value="mardi" class="jour-block" id="jour2">
+                    <input type="button" value="mercredi" class="jour-block" id="jour3">
+                    <input type="button" value="jeudi" class="jour-block" id="jour4">
+                    <input type="button" value="vendredi" class="jour-block" id="jour5">
+                    <input type="button" value="samedi" class="jour-block" id="jour6">
+                    <input type="button" value="dimanche" class="jour-block" id="jour7">
+                </div> -->
+            </div>
+            <div id="statu-field">
+                
+                <label for="statu"> statu vise</label><input type="" name="statuVise" id="" placeholder="statu vise">
+                <!-- <input type="button" value="cadet" class="statut" id="status1">
+                <input type="button" value="amateur" class="statut" id="status2">
+                <input type="button" value="minime" class="statut" id="status3">
+                <input type="button" value="junior" class="statut" id="status4">
+                <input type="button" value="junior intermediaire" class="statut" id="status5">
+                <input type="button" value="cadet-intermediaire" class="statut" id="status6">
+                <input type="button" value="cenior" class="statut" id="status7">
+                <input type="button" value="cenior intermediaire" class="statut" id="status8">
+                <input type="button" value="professionnel intermediaire" class="statut" id="status9">
+                <input type="button" value="professionnel" class="statut" id="status10"> -->
+            </div>
+            <div id="moyenne-field">
+                <label for="moyenne">moyenne</label><input type="number" name="moyenne" placeholder="moyenne" id="">
+            </div>
+            <div id="description-field">
+                <label for="description"> description de votre objectif</label><input type="text" name="description" id="">
+            </div>
+
+            <input type="submit" value="Valider">
+        </form>
+    </main>
+    
+</body>
+</html>

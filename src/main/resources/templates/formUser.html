@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/formUser.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo"> <span>studOr</span> </div>
+        <span>studOr</span>
+    </header>
+    <main>
+        <form action="/studor/saveProfil" method="post" id="profil-form">
+            <div id="contain">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom" required><br>
+                <label for="prenom">Prenom</label>
+                <input type="text" name="prenom" id="prenom"><br>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required><br>
+                <label for="pass">Pass-word</label>
+                <input type="password" name="pass" id="pass" required><br>
+                <div id="btn">
+                    <input type="submit" value="S'inscrire" id="inscrire" >
+                    <input type="reset" value="Annuler" id="annuler" >
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/styleMatiere.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/studor/createMatiere" method="post">
+        <h3>Formulaire d'insertion des matieres</h3>
+        <label for="nom">nom</label>
+        <input type="text" name="nom" id="nom" ><br>
+        <label for="coef">Coeficient</label>
+        <input type="number" name="coef" id="coef" value="1"><br>
+        <input type="submit" style=" margin-left:5%;" id="boutton" value="Save" >
+        <!-- <input type="button" style=" margin-left:5%;" id="boutton" value="Save" onclick="popup(30)"> -->
+    </form>
+
+    <div id="popup">
+        <span>Element engeristrer avec sucess !</span>
+    </div>
+
+    <!-- <div id="barre"></div> -->
+
+    <script src="/assets/js/test.js"></script>
+  
+</body>
+</html>
