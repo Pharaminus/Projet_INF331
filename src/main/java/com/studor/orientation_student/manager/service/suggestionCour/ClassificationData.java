@@ -13,7 +13,7 @@ public class ClassificationData{
             // Charger les données à partir d'un fichier .arff
             GetAbsoluePath getAbsoluePath = new GetAbsoluePath();
             String path = getAbsoluePath.getAbsolutePathOfFile();
-            path = path + "/data/dataTest.arff";
+            path = path + "/data/suggestionCourData/dataForTrainning.arff";
             DataSource source = new DataSource(path);
             Instances data = source.getDataSet();
             

@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.studor.orientation_student.entities.suggestionCourEntities.DataModel;
+import com.studor.orientation_student.entities.suggestionCourEntities.ModelSuggestionCour;
 import com.studor.orientation_student.manager.service.suggestionCour.DataGeneration;
 import com.studor.orientation_student.manager.service.suggestionCour.GetAbsoluePath;
+// import com.studor.orientation_student.manager.service.suggestionCour.MakeModelClassification;
+import com.studor.orientation_student.manager.service.suggestionCour.MakeModelClassification;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -25,7 +28,9 @@ public class DataController {
         List<DataModel> dataModels = new ArrayList<>();
 
         dataModels = dataGeneration.generateRandomData(100);
-        dataGeneration.writeARFFFile(dataModels, 0);
+        dataGeneration.writeARFFFile(dataModels, 1);
+        MakeModelClassification makeModelClassification = new MakeModelClassification();
+        // ModelSuggestionCour modelSuggestionCour = makeModelClassification.buildAndSaveModel();
         return "donne generer avec succes !!!";
     }
 

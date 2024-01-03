@@ -20,11 +20,7 @@ import weka.core.converters.ConverterUtils.DataSource;
 @RestController
 public class ObjectifRestController {
 
-    // @Autowired
-    // private ClassificationData classificationData;
 
-    // @Autowired
-    // private Classifier modele; // Votre modèle préalablement entraîné
 
     @PostMapping("/classification")
     public String effectuerClassification(@ModelAttribute DataModel dataModel) throws IOException {
@@ -36,7 +32,7 @@ public class ObjectifRestController {
         List<DataModel> dataModels = new ArrayList<>();
         dataModels.add(dataModel);
         DataGeneration dataGeneration = new DataGeneration();
-        dataGeneration.writeARFFFile(dataModels, 1);
+        dataGeneration.writeARFFFile(dataModels, 0);
 
         Classifier modele = ClassificationData.classifyData();
         String predictedClassName = " aucune class trouver";
@@ -45,7 +41,7 @@ public class ObjectifRestController {
 
             GetAbsoluePath getAbsoluePath = new GetAbsoluePath();
             String path = getAbsoluePath.getAbsolutePathOfFile();
-            path = path + "/data/fichier_test.arff";
+            path = path + "/data/suggestionCourData/dataForPrediction.arff";
 
             // Charger les données de test à partir d'un fichier ARFF
             DataSource testSource = new DataSource(path);

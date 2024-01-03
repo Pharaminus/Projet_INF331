@@ -72,9 +72,9 @@ public class DataGeneration {
         GetAbsoluePath getAbsoluePath = new GetAbsoluePath();
         String path = getAbsoluePath.getAbsolutePathOfFile();
         if (numFile == 1)
-            path = path + "/data/fichier_test.arff";
+            path = path + "/data/suggestionCourData/dataForTrainning.arff";
         if (numFile == 0)
-            path = path + "/data/dataTest.arff";
+            path = path + "/data/suggestionCourData/dataForPrediction.arff";
 
         FileWriter writer = new FileWriter(path);
 
