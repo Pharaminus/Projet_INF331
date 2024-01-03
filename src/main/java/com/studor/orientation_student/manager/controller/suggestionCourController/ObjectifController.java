@@ -96,7 +96,10 @@ public class ObjectifController {
         }    
     }
 
-    // @GetMapping("/personnaliserObjectif")
+    @GetMapping("/testClassification")
+    public String testClassification(){
+        return "suggestionCour/test_classification";
+    }
 
 
 }
