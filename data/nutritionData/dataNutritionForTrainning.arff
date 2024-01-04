@@ -1,0 +1,11 @@
+@relation MaladiesPredicion
+
+@attribute nomrepas1{poulet_rôti,légumes_sautés,riz_basmati,spaghetti_bolognaise,salade_verte,pain_à_l_ail,saumon_grillé,purée_de_pommes_de_terre,asperges_grillées}
+@attribute nomrepas2{poulet_rôti,légumes_sautés,riz_basmati,spaghetti_bolognaise,salade_verte,pain_à_l_ail,saumon_grillé,purée_de_pommes_de_terre,asperges_grillées}
+@attribute nomrepas3{poulet_rôti,légumes_sautés,riz_basmati,spaghetti_bolognaise,salade_verte,pain_à_l_ail,saumon_grillé,purée_de_pommes_de_terre,asperges_grillées}
+@attribute nommaladie{Grippe,Rhume,Sinusite,Gastro_entériteastro_entérite}
+@attribute syptoms{toux,eternuements,mal_de_gorge,fatigue,congestion_nasale,douleur_faciale,maux_de_tête,fièvre,diarrhée,vomissements,nausées,maux_de_ventre}
+
+
+@data
+repas2,repas,2,,GGastro-entériteastro-entérite,fatigue

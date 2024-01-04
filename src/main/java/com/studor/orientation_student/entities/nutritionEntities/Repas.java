@@ -1,8 +1,11 @@
-package com.studor.orientation_student.entities.nutrition;
+package com.studor.orientation_student.entities.nutritionEntities;
 
 
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Blob;
+
+import com.studor.orientation_student.entities.profilejobprediction.User;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -10,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
@@ -25,12 +29,15 @@ public class Repas {
     private double apportEnergetique;
     private double prix;
 
+    @Lob
+    private Blob imagerepas;
+
     @OneToMany(mappedBy = "repas", cascade = CascadeType.ALL)
     private List<Restaurants> restaurant = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "utilisateurs_id")
-    private Utilisateurs utilisateurs;    
+    private User utilisateurs;    
 
     @OneToMany(mappedBy = "repas", cascade = CascadeType.ALL)
     private List<Maladies> maladies = new ArrayList<>();

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.studor.orientation_student.entity.establishmentsuggestion.Domain;
-import com.studor.orientation_student.entity.establishmentsuggestion.Establishment;
-import com.studor.orientation_student.entity.establishmentsuggestion.Training;
+import com.studor.orientation_student.entities.establishmentsuggestion.Domain;
+import com.studor.orientation_student.entities.establishmentsuggestion.Establishment;
+import com.studor.orientation_student.entities.establishmentsuggestion.Training;
 import com.studor.orientation_student.manager.repository.DomainRepository;
 import com.studor.orientation_student.manager.repository.EstablishmentRepository;
 import com.studor.orientation_student.manager.repository.TrainingRepository;

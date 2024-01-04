@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.studor.orientation_student.entity.profilejobprediction.Profil;
+import com.studor.orientation_student.entities.profilejobprediction.Profil;
 import com.studor.orientation_student.manager.repository.ProfilRepository;
 
 @Service

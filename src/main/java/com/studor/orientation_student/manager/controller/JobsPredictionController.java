@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.studor.orientation_student.entity.profilejobprediction.Jobs;
+import com.studor.orientation_student.entities.profilejobprediction.Jobs;
 import com.studor.orientation_student.manager.repository.JobsRepository;
 import com.studor.orientation_student.manager.service.WekaClassify;
 
