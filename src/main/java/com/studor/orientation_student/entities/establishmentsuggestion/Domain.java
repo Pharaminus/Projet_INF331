@@ -1,4 +1,4 @@
-package com.studor.orientation_student.entity.establishmentsuggestion;
+package com.studor.orientation_student.entities.establishmentsuggestion;
 
 import java.util.List;
 

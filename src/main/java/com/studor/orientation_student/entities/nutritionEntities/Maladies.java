@@ -1,12 +1,15 @@
-package com.studor.orientation_student.entities.nutrition;
+package com.studor.orientation_student.entities.nutritionEntities;
 
+import java.sql.Blob;
 import java.util.List;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -17,6 +20,9 @@ public class Maladies {
     private String nom;
     private String medicament;
     private List<String> symptoms;
+
+    @Lob
+    private Blob imagemedoc;    
 
     @ManyToOne
     @JoinColumn(name = "repas_id")

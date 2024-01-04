@@ -6,17 +6,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import org.hibernate.annotations.Type;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
-import jakarta.persistence.OneToOne;
 import weka.classifiers.Classifier;
-import weka.core.SerializationHelper;
 
 @Entity
 public class ModelSuggestionCour {
@@ -25,11 +20,7 @@ public class ModelSuggestionCour {
     private Long idModel;
     private String version;
     @Lob
-    private byte[] serialisezeModel;
-
-    @OneToOne
-    @JoinColumn(name = "nomEmploiTemps", referencedColumnName = "nomEmploiTemps")
-    private EmploiTemps emploiTemps;
+    private byte[] serialisezeModel; 
 
     public Classifier getClassifier() {
         try {
@@ -71,15 +62,6 @@ public class ModelSuggestionCour {
 
     public void setSerialisezeModel(byte[] serialisezeModel) {
         this.serialisezeModel = serialisezeModel;
-    }
-
-  
-    public EmploiTemps getEmploiTemps() {
-        return emploiTemps;
-    }
-
-    public void setEmploiTemps(EmploiTemps emploiTemps) {
-        this.emploiTemps = emploiTemps;
     }
 
     public Long getIdModel() {

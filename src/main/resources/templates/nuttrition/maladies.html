@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Controller</title>
+</head>
+<body>
+    <h1>Test Controller</h1>
+
+    <form id="generate-arff-form">
+        <label for="nomrepas1">Nom Repas 1:</label>
+        <input type="text" id="nomrepas1" placeholder="Nom Repas 1"><br>
+
+        <label for="nomrepas2">Nom Repas 2:</label>
+        <input type="text" id="nomrepas2" placeholder="Nom Repas 2"><br>
+
+        <label for="nomrepas3">Nom Repas 3:</label>
+        <input type="text" id="nomrepas3" placeholder="Nom Repas 3"><br>
+
+        <label for="nommaladie">Nom Maladie:</label>
+        <input type="text" id="nommaladie" placeholder="Nom Maladie"><br>
+
+        <label for="symptoms">Symptômes:</label>
+        <input type="text" id="symptoms" placeholder="Symptômes"><br>
+
+        <button type="button" onclick="generateARFF()">Générer ARFF</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function generateARFF() {
+            var nomrepas1 = document.getElementById("nomrepas1").value;
+            var nomrepas2 = document.getElementById("nomrepas2").value;
+            var nomrepas3 = document.getElementById("nomrepas3").value;
+            var nommaladie = document.getElementById("nommaladie").value;
+            var symptoms = document.getElementById("symptoms").value;
+
+            var url = "/generate-arff?nomrepas1=" + encodeURIComponent(nomrepas1) +
+                      "&nomrepas2=" + encodeURIComponent(nomrepas2) +
+                      "&nomrepas3=" + encodeURIComponent(nomrepas3) +
+                      "&nommaladie=" + encodeURIComponent(nommaladie) +
+                      "&symptoms=" + encodeURIComponent(symptoms);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("result").innerText = xhr.responseText;
+                } else {
+                    document.getElementById("result").innerText = "Erreur lors de la génération de l'ARFF.";
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
