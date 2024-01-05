@@ -1,0 +1,63 @@
+
+.container .head, .container .foot{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid;
+    border-color: rgba(247, 123, 0, 0.852);
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    color: rgba(247, 123, 0, 0.852);
+}
+
+.container .head{
+    top: 0%;
+    left: 0%;
+    /* align-items: start; */
+    background-color: rgba(14, 1, 42, 1);
+}
+
+.container .head h1{
+    margin-left: 6%;
+}
+
+.container .head .studor-logo{
+    margin-bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    border-radius: 4px;
+    height: 40px;
+    width: 40px;
+    border-color: aliceblue;
+    margin-left: 8%;
+    transform: rotate(45deg);
+}
+
+.container .head .studor-logo .studor-text-logo{
+    font-size: 1px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 600px) and (max-height: 800px) {
+    .container .head .studor-logo{
+        font-size: small;
+        margin-bottom: 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid;
+        border-radius: 4px;
+        height: 30px;
+        width: 30px;
+        border-color: aliceblue;
+        margin-left: 8%;
+        transform: rotate(45deg);
+    }
+}

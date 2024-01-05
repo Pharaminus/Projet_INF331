@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/establishment-job-css/main-establishment-job.css">
+    <link rel="stylesheet" href="/css/establishment-job-css/header-establishment-job.css">
+    <link rel="stylesheet" href="/css/establishment-job-css/footer-establishment-job.css">
+    <style>
+        #notes-form {
+            display: none;
+            align-items: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 100%;
+            backdrop-filter: blur(10px);
+            background-color: rgba(239, 76, 0, 0.3);
+            z-index: 1;
+            /* backdrop-filter: blur(50px); */
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            /* text-align: center; */
+            /* background-color: rgb(3, 3, 93); */
+            border-radius: 2%;
+            color: aliceblue;
+            width: 70%;
+            height: 50%;
+            margin-left: 15%;
+        }
+
+        .contains {
+            display: block;
+            width: 100%;
+        }
+
+        .contains label,
+        .contains input,
+        .contains select {
+            display: inline-block;
+            width: 40%;
+        }
+
+        .contains label {
+            margin-left: -5%;
+            text-align: end;
+        }
+
+        .contains button {
+            color: aliceblue;
+            display: block;
+            justify-content: center;
+            width: 50%;
+            height: 30px;
+            background-color: rgb(3, 3, 93);
+            margin-left: 22%;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .contains {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+                /* margin-left: 10%; */
+            }
+
+            .contains label {
+                margin-left: 0%;
+                text-align: center;
+            }
+
+            .contains button {
+                margin-left: 0%;
+                height: 20px;
+            }
+        }
+    </style>
+    <!-- <script src="/js/studor-home.js"></script> -->
+    <title>Studor Job Predicted </title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="head">
+            <div class="studor-logo">
+                <p class="studor-text-logo">StudOr</p>
+            </div>
+            <h1>STUDOR</h1>
+        </header>
+        <main class="body-contains">
+            <div class="image-text" id="body-contains">
+                <div class="image"><img id="image" src="" alt="job image"></div>
+                <div class="text">
+                    <p id="job">
+                        <strong id="job-intro"></strong><u id="job-name"></u><br><br><br id="job-description">
+                    </p>
+                </div>
+            </div>
+
+            <form id="notes-form" action="/home/send-notes" method="post">
+                <div class="contains">
+                    <label for="type">Serie: </label>
+                    <select id="type" name="type" required>
+                        <option value="placeholder" disabled selected hidden>Select the type of your notes report</option>
+                        <option id="C" value="C">C</option>
+                        <option id="A" value="A">A</option>
+                        <option id="D" value="D">D</option>
+                    </select><br><br>
+                    <label for="niveau">Niveau: </label>
+                    <select id="niveau" name="niveau" required>
+                        <option value="placeholder" disabled selected hidden>Select your level</option>
+                        <option id="Tle" value="Tle">Tle</option>
+                        <option id="ING-HUA-1" value="ING-HUA-1">ING-HUA-1</option>
+                    </select><br><br>
+                    <label for="mention">Mention: </label>
+                    <select id="mention" name="mention" required>
+                        <option id="placeholder" value="placeholder" disabled selected hidden>Select your mention</option>
+                        <option id="Excellent" value="Excellent">Excellent</option>
+                        <option id="Tres Bien" value="Tres Bien">Tres Bien</option>
+                        <option id="Bien" value="Bien">Bien</option>
+                        <option id="Assez Bien" value="Assez Bien">Assez Bien</option>
+                        <option id="Passable" value="Passable">Passable</option>
+                    </select><br><br>
+                    <label for="mathNote">Note de Mathematique: </label>
+                    <input type="number" name="mathNote" placeholder="Enter your Mathematique note"
+                        id="mathNote" required><br><br>
+                    <label for="phyNote">Note de Physique: </label>
+                    <input type="number" name="phyNote" placeholder="Enter your Physique note" id="phyNote" required><br><br>
+                    <label for="infoNote">Note d' Informatique: </label>
+                    <input type="number" name="infoNote" placeholder="Enter your Computer Science note "
+                        id="infoNote" required><br><br>
+                    <label for="chmNote">Note de Chimie: </label>
+                    <input type="number" name="chmNote" placeholder="Enter your Chemistry note" id="chmNote" required><br><br>
+                    <label for="engNote">Note d' Anglais: </label>
+                    <input type="number" name="engNote" placeholder="Enter your English Language note"
+                        id="engNote" required><br><br>
+                    <label for="fraNote">Note de Francais: </label>
+                    <input type="number" name="fraNote" placeholder="Enter your French Language note"
+                        id="fraNote" required><br><br>
+                    <button type="submit" id="sub-form">Valider</button>
+                </div>
+            </form>
+
+        </main>
+        <footer class="foot">
+            <button id="predict" class="job-discovery">Decouvrez votre profession</button>
+            <button id="suggest" class="discovery-opportunities">Decouvrez d'autres opportunites</button>
+            <button class="build-analyse">Renforcez votre analyse</button>
+        </footer>
+    </div>
+    <script type="module" src="/js/establishment-job-js/job-prediction.js"></script>
+    <script type="module" src="/js/establishment-job-js/establishment-suggestion.js"></script>
+</body>
+
+</html>
