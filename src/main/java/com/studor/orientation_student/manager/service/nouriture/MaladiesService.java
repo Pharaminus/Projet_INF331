@@ -2,6 +2,7 @@ package com.studor.orientation_student.manager.service.nouriture;
 
 import org.springframework.stereotype.Service;
 
+import com.studor.orientation_student.entities.nutritionEntities.Maladies;
 import com.studor.orientation_student.manager.service.suggestionCour.GetAbsoluePath;
 
 import weka.classifiers.Classifier;
@@ -13,8 +14,10 @@ import weka.core.converters.ConverterUtils.DataSource;
 public class MaladiesService {
 
     // methode pour consulter un medicament d'urgence a une maladie
-   
-
+   public String getMedicamentUrgence(Maladies maladies)
+   {
+        return maladies.getMedicament();
+   }
    // methode pour predire les maladies en fonctions des 5 dernier repas consommes
    public static Classifier classifyData() {
         try {

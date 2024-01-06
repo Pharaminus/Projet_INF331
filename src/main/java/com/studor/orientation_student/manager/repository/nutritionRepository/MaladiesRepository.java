@@ -8,5 +8,7 @@ import com.studor.orientation_student.entities.nutritionEntities.Maladies;
 
 @Repository
 public interface MaladiesRepository extends JpaRepository<Maladies, Long>{
+
+    Maladies findByNom(String nom);
     
 }

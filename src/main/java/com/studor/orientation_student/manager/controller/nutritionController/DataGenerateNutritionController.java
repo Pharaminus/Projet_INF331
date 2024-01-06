@@ -20,7 +20,7 @@ public class DataGenerateNutritionController {
         DataNutritionGeneration dataNutritionGeneration = new DataNutritionGeneration();
         List<DataNutrition> dataModels = new ArrayList<>();
 
-        dataModels = dataNutritionGeneration.generateRandomData(200);
+    dataModels = dataNutritionGeneration.generateRandomData(150);
         dataNutritionGeneration.writeARFFFile(dataModels, 1);
         MakeModelClassification makeModelClassification = new MakeModelClassification();
         // ModelSuggestionCour modelSuggestionCour = makeModelClassification.buildAndSaveModel();

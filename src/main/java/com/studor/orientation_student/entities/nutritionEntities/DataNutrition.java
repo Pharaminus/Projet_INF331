@@ -1,6 +1,10 @@
 package com.studor.orientation_student.entities.nutritionEntities;
 
-public class DataNutrition { 
+
+import jakarta.persistence.*;
+
+
+public class DataNutrition {
     private String nomrepas1;
     private String nomrepas2;
     private String nomrepas3;

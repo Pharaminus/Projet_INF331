@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,29 +19,24 @@ import weka.classifiers.Classifier;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
-
 @RestController
 @RequestMapping("/maladies")
-public class maladiesController {
+public class MaladiesController {
     
-
+    
     @PostMapping("/prediction")
-    public String effectuerClassification(@ModelAttribute DataNutrition dataModel){
+    public String effectuerClassification(@ModelAttribute DataNutrition dataModel) throws IOException {
 
         // generation du fichier pour la recherche de la class
         dataModel.setNom("?");
         dataModel.setNomrepas1(dataModel.getNomrepas1().replace(" ", "_"));
         dataModel.setNomrepas2(dataModel.getNomrepas2().replace(" ", "_"));
         dataModel.setNomrepas3(dataModel.getNomrepas3().replace(" ", "_"));
+        dataModel.setSymptoms(dataModel.getSymptoms().replace(" ", "_"));
         List<DataNutrition> dataModels = new ArrayList<>();
         dataModels.add(dataModel);
         DataNutritionGeneration dataGeneration = new DataNutritionGeneration();
-        try {
-            dataGeneration.writeARFFFile(dataModels, 0);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        dataGeneration.writeARFFFile(dataModels, 0);
 
         Classifier modele = MaladiesService.classifyData();
         String predictedClassName = " aucune maladie trouver";
@@ -64,10 +60,10 @@ public class maladiesController {
                 predictedClassName = testData.classAttribute().value((int) predictedClass);
                 System.out.println("Instance " + (i + 1) + ": Classe prédite = " + predictedClassName);
             }
-            return "<h1> La maladie predite est  > : " + predictedClassName +" </h1>";
+            return "<h1> La maladie predite est > : "+ predictedClassName +" </h1>";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Erreur lors de la prediction.\n" + e.getMessage() + " \n";
+            return "Erreur lors de la classification.\n" + e.getMessage() + " \n";
         }
     }
 }
