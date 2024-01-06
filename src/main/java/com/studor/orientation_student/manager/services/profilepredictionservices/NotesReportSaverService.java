@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.studor.orientation_student.entities.profilejobprediction.Level;
 import com.studor.orientation_student.entities.profilejobprediction.Matter;
 import com.studor.orientation_student.entities.profilejobprediction.Notes;
 import com.studor.orientation_student.entities.profilejobprediction.NotesReport;
 import com.studor.orientation_student.entities.profilejobprediction.User;
+import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.LevelRepository;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.MatterRepository;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.NotesReportRepository;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.UserRepository;
@@ -30,6 +32,9 @@ public class NotesReportSaverService {
     @Autowired
     private NotesReportRepository notesReportRepository;
 
+    @Autowired
+    private LevelRepository levelRepository;
+
     public String checkIfNotesReportExists(HttpSession session){
 
         String userEmail = (String)session.getAttribute("email");
@@ -48,6 +53,12 @@ public class NotesReportSaverService {
         return null;
     }
 
+    public List<String> getAllLevel(){
+        List<String> allCodeLevel = new ArrayList<>();
+        levelRepository.findAll().forEach(level -> allCodeLevel.add(level.getCode()));
+        return allCodeLevel;
+    }
+
     public String saveNotesReport(HttpSession session, double mathNote, double phyNote,double infoNote,
         double chmNote, double engNote, double fraNote, String mention, String type, String niveau){
 
@@ -56,9 +67,9 @@ public class NotesReportSaverService {
                 User user = userRepository.findByEmail(userEmail);
                 NotesReport notesReport = new NotesReport();
                 notesReport.setMention(mention);
-                List<Matter> matters = matterRepository.findByTypeAndNiveau(type, niveau);
+                Level level = levelRepository.findByCode(niveau);
+                List<Matter> matters = matterRepository.findByLevel(level);
                 System.out.println("----------========="+type+"===============-----------------=============="+niveau);
-                System.out.println(matters.get(0).getNiveau());
                 int mathCoef = matters.get(0).getCoef();
                 int phyCoef = matters.get(1).getCoef();
                 int infoCoef = matters.get(2).getCoef();
@@ -76,11 +87,8 @@ public class NotesReportSaverService {
                 notes.add(new Notes(engNote, notesReport, matters.get(4)));
                 notes.add(new Notes(fraNote, notesReport, matters.get(5)));
                 notesReport.setNotes(notes);
-                // notesReportRepository.findByP
                 notesReport.setProfil(user.getProfil());
                 notesReportRepository.save(notesReport);
-                // System.out.println("-----------+==========================="+user.getProfil().getNotesReport().getId());
-                // userRepository.save(user);
                 return "OK";
             }
             else{

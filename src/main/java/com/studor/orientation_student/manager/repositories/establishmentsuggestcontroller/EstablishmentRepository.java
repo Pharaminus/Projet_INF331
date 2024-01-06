@@ -19,7 +19,7 @@ public interface EstablishmentRepository extends JpaRepository<Establishment, Lo
     List<Establishment> findByLocalisation(String localisation);
     Establishment findByNom(String nom);
     Establishment findByImage(Blob image);
-    List<Establishment> findByNomDirecteur(String nomDirecteur);
+    Establishment findByNomDirecteur(String nomDirecteur);
     List<Establishment> findByProfil(Profil profil);
     Page<Establishment> findAll(Pageable pageable);
 }

@@ -3,61 +3,62 @@ package com.studor.orientation_student.entities.profilejobprediction;
 import java.sql.Blob;
 import java.util.List;
 
+import com.studor.orientation_student.entities.establishmentsuggestion.Training;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
-public class Jobs {
+public class Job {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
     private String description;
-    private int dureeFormation;
     private Long salaire;
 
     @Lob
     private Blob image;
 
-    @OneToMany(mappedBy = "jobs", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL)
     private List<Profil> profils;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private Option option;
 
-    public Jobs(String nom, String description, int dureeFormation, Long salaire, Blob image, List<Profil> profils,
-            Category category) {
+    @OneToOne
+    private Training training;
+
+    public Job(String nom, String description, Long salaire, Blob image, List<Profil> profils,
+            Option option, Training training) {
         this.nom = nom;
         this.description = description;
-        this.dureeFormation = dureeFormation;
         this.salaire = salaire;
         this.image = image;
         this.profils = profils;
-        this.category = category;
+        this.option = option;
+        this.training = training;
     }
 
-    public Jobs() {
+    public Job() {
     }
 
-    public int getDureeFormation() {
-        return dureeFormation;
-    }
-    public void setDureeFormation(int dureeFormation) {
-        this.dureeFormation = dureeFormation;
+    public Long getId() {
+        return id;
     }
 
     public String getNom() {
         return nom;
     }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -65,6 +66,7 @@ public class Jobs {
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -72,19 +74,9 @@ public class Jobs {
     public Long getSalaire() {
         return salaire;
     }
+
     public void setSalaire(Long salaire) {
         this.salaire = salaire;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-    public Category getCategory() {
-        return category;
     }
 
     public Blob getImage() {
@@ -95,11 +87,27 @@ public class Jobs {
         this.image = image;
     }
 
-    public List<Profil> getProfil() {
+    public List<Profil> getProfils() {
         return profils;
     }
 
-    public void setProfil(List<Profil> profils) {
+    public void setProfils(List<Profil> profils) {
         this.profils = profils;
+    }
+
+    public Option getOption() {
+        return option;
+    }
+
+    public void setOption(Option option) {
+        this.option = option;
+    }
+
+    public Training getTraining() {
+        return training;
+    }
+
+    public void setTraining(Training training) {
+        this.training = training;
     }
 }

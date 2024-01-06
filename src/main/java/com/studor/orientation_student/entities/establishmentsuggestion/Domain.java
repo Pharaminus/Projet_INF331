@@ -2,7 +2,8 @@ package com.studor.orientation_student.entities.establishmentsuggestion;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
+import com.studor.orientation_student.entities.profilejobprediction.Option;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,17 +17,19 @@ public class Domain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
+    private String description;
 
-    @OneToMany(mappedBy = "domain", cascade =  CascadeType.ALL)
-    private List<Training> trainings;
+    @ManyToMany
+    private List<Establishment> establishments;
 
-    @ManyToMany(mappedBy = "domains")
-    private List<Establishment> establishment;
+    @OneToMany(mappedBy = "domain")
+    private List<Option> options;
 
-    public Domain(String nom, List<Training> trainings, List<Establishment> establishment) {
+    public Domain(String nom, String description, List<Establishment> establishments, List<Option> options) {
         this.nom = nom;
-        this.trainings = trainings;
-        this.establishment = establishment;
+        this.description = description;
+        this.establishments = establishments;
+        this.options = options;
     }
 
     public Domain() {
@@ -44,31 +47,27 @@ public class Domain {
         this.nom = nom;
     }
 
-    public List<Training> getTraining() {
-        return trainings;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTraining(List<Training> trainings) {
-        this.trainings = trainings;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public List<Establishment> getEstablishments() {
+        return establishments;
     }
 
-    public List<Training> getTrainings() {
-        return trainings;
+    public void setEstablishments(List<Establishment> establishments) {
+        this.establishments = establishments;
     }
 
-    public void setTrainings(List<Training> trainings) {
-        this.trainings = trainings;
+    public List<Option> getOptions() {
+        return options;
     }
 
-    public List<Establishment> getEstablishment() {
-        return establishment;
-    }
-
-    public void setEstablishment(List<Establishment> establishment) {
-        this.establishment = establishment;
+    public void setOptions(List<Option> options) {
+        this.options = options;
     }
 }

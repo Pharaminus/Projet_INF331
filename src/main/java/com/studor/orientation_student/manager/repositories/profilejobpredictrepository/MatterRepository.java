@@ -3,6 +3,7 @@ package com.studor.orientation_student.manager.repositories.profilejobpredictrep
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.studor.orientation_student.entities.profilejobprediction.Level;
 import com.studor.orientation_student.entities.profilejobprediction.Matter;
 
 import java.util.List;
@@ -14,8 +15,6 @@ import com.studor.orientation_student.entities.establishmentsuggestion.Training;
 public interface MatterRepository extends JpaRepository<Matter, Long>{
     List<Matter> findByCoef(int coef);
     List<Matter> findByNom(String nom);
-    List<Matter> findByType(String type);
-    List<Matter> findByNiveau(String niveau);
-    List<Matter> findByTypeAndNiveau(String type, String niveau);
+    List<Matter> findByLevel(Level level);
     List<Matter> findByTraining(Training training);
 }

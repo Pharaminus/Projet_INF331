@@ -2,6 +2,7 @@ package com.studor.orientation_student.entities.establishmentsuggestion;
 
 import java.util.List;
 
+import com.studor.orientation_student.entities.profilejobprediction.Job;
 import com.studor.orientation_student.entities.profilejobprediction.Matter;
 
 import jakarta.persistence.CascadeType;
@@ -9,8 +10,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Training {
@@ -21,22 +23,22 @@ public class Training {
     private int duree;
     private double cout;
 
-    @ManyToOne
-    private Domain domain;
+    @ManyToMany
+    private List<Establishment> establishments;
 
-    @ManyToOne
-    private Establishment establishment;
+    @OneToOne(mappedBy = "training")
+    private Job job;
 
     @OneToMany(mappedBy = "training", cascade = CascadeType.ALL)
     private List<Matter> matters;
 
-    public Training(String nom, int duree, double cout, Domain domain, Establishment establishment,
+    public Training(String nom, int duree, double cout, List<Establishment> establishments, Job job,
             List<Matter> matters) {
         this.nom = nom;
         this.duree = duree;
         this.cout = cout;
-        this.domain = domain;
-        this.establishment = establishment;
+        this.establishments = establishments;
+        this.job = job;
         this.matters = matters;
     }
 
@@ -71,27 +73,27 @@ public class Training {
         this.cout = cout;
     }
 
-    public Domain getDomain() {
-        return domain;
-    }
-
-    public void setDomain(Domain domain) {
-        this.domain = domain;
-    }
-
-    public Establishment getEstablishment() {
-        return establishment;
-    }
-
-    public void setEstablishment(Establishment establishment) {
-        this.establishment = establishment;
-    }
-
     public List<Matter> getMatters() {
         return matters;
     }
 
     public void setMatters(List<Matter> matters) {
         this.matters = matters;
+    }
+
+    public List<Establishment> getEstablishments() {
+        return establishments;
+    }
+
+    public void setEstablishments(List<Establishment> establishments) {
+        this.establishments = establishments;
+    }
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
     }
 }

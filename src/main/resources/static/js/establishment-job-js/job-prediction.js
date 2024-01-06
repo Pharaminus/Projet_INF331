@@ -20,9 +20,9 @@ document.getElementById("predict").addEventListener("click", () => {
                             let dureeFormation = response.dureeFormation
                             let salary = response.salary
                             let jobImage = response.jobImage
-                            let category = response.category
+                            let option = response.option
 
-                            description = "In " + category + " sector the " + name + " " + description.toLowerCase() + "\n To become " + name + " you need to " + dureeFormation + " years for training, after it you start with " + salary + "FCFA as salary."
+                            description = "In " + option + " sector the " + name + " " + description.toLowerCase() + "\n To become " + name + " you need to " + dureeFormation + " years for training, after it you start with " + salary + "FCFA as salary."
                             // window.location.href = "/home/predicted"
                             document.getElementById("image").src = "data:image/webp;base64," + jobImage
                             displayText(name, description)

@@ -20,8 +20,6 @@ public class Matter {
     private Long id;
     private String nom;
     private int coef;
-    private String type;
-    private String niveau;
 
     @OneToMany(mappedBy = "matter", cascade = CascadeType.ALL)
     private List<Notes> notes;
@@ -29,13 +27,15 @@ public class Matter {
     @ManyToOne
     private Training training;
 
-    public Matter(String nom, int coef, String type, String niveau, List<Notes> notes, Training training) {
+    @ManyToOne
+    private Level level;
+
+    public Matter(String nom, int coef, List<Notes> notes, Training training, Level level) {
         this.nom = nom;
         this.coef = coef;
-        this.type = type;
-        this.niveau = niveau;
         this.notes = notes;
         this.training = training;
+        this.level = level;
     }
 
     public Matter() {
@@ -69,22 +69,6 @@ public class Matter {
         this.notes = notes;
     }
 
-    public String getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(String niveau) {
-        this.niveau = niveau;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public Training getTraining() {
         return training;
     }
@@ -92,4 +76,13 @@ public class Matter {
     public void setTraining(Training training) {
         this.training = training;
     }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+    
 }

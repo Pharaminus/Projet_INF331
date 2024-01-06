@@ -2,17 +2,16 @@ package com.studor.orientation_student.manager.repositories.establishmentsuggest
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.studor.orientation_student.entities.establishmentsuggestion.Domain;
-import com.studor.orientation_student.entities.establishmentsuggestion.Establishment;
 import com.studor.orientation_student.entities.establishmentsuggestion.Training;
 
 import java.util.List;
+import com.studor.orientation_student.entities.profilejobprediction.Job;
+
 
 public  interface TrainingRepository extends JpaRepository<Training, Long>{
 
     List<Training> findByCout(double cout);
-    List<Training> findByEstablishment(Establishment establishment);
     List<Training> findByDuree(int duree);
     Training findByNom(String nom);
-    List<Training> findByDomain(Domain domain);
+    Training findByJob(Job job);
 }

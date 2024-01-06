@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.studor.orientation_student.entities.profilejobprediction.Profil;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Establishment {
@@ -27,10 +25,10 @@ public class Establishment {
     @Lob
     private Blob image;
 
-    @OneToMany(mappedBy = "establishment", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "establishments")
     private List<Training> trainings;
     
-    @ManyToMany
+    @ManyToMany(mappedBy = "establishments")
     private List<Domain> domains;
 
     @ManyToOne
