@@ -4,6 +4,7 @@ package com.studor.orientation_student.manager.service.suggestionCour;
 import weka.classifiers.trees.J48;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.SerializationHelper;
 import weka.classifiers.Classifier;
 import weka.core.converters.ConverterUtils.DataSource;
 
@@ -12,8 +13,8 @@ public class ClassificationData{
         try {
             // Charger les données à partir d'un fichier .arff
             GetAbsoluePath getAbsoluePath = new GetAbsoluePath();
-            String path = getAbsoluePath.getAbsolutePathOfFile();
-            path = path + "/data/suggestionCourData/dataForTrainning.arff";
+            String path1 = getAbsoluePath.getAbsolutePathOfFile();
+            String path = path1 + "/data/suggestionCourData/dataForTrainning.arff";
             DataSource source = new DataSource(path);
             Instances data = source.getDataSet();
             
@@ -27,7 +28,9 @@ public class ClassificationData{
             // Entraîner un modèle J48 (arbre de décision)
             Classifier tree = new J48();
             tree.buildClassifier(data);
-
+            // Sauvegarde du modèle dans un fichier
+            path = path1 + "/data/suggestionCourData/model.model";
+            SerializationHelper.write(path, tree); 
            
             return tree;
         } catch (Exception e) {

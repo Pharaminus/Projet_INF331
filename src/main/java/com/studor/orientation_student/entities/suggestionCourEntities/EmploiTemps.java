@@ -28,9 +28,7 @@ public class EmploiTemps {
     @OneToMany(mappedBy = "emploiTemps", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Discipline> disciplines = new ArrayList<>();
 
-    @OneToOne(mappedBy = "emploiTemps" ,cascade = CascadeType.ALL)
-    // @JoinColumn(name = "idModelSuggestionCour")
-    private ModelSuggestionCour modelSuggestionCour;
+
 
 
     public EmploiTemps() {
@@ -43,13 +41,13 @@ public class EmploiTemps {
     }
 
     public EmploiTemps(Long duree, String typeEmploiTemps, String difficulte, Programme programme,
-            List<Discipline> disciplines, ModelSuggestionCour modelSuggestionCour) {
+            List<Discipline> disciplines) {
         this.duree = duree;
         this.typeEmploiTemps = typeEmploiTemps;
         this.difficulte = difficulte;
         this.programme = programme;
         this.disciplines = disciplines;
-        this.modelSuggestionCour = modelSuggestionCour;
+        
     }
 
     public String getTypeEmploiTemps() {
@@ -100,13 +98,7 @@ public class EmploiTemps {
         this.disciplines = disciplines;
     }
 
-    public ModelSuggestionCour getModelSuggestionCour() {
-        return modelSuggestionCour;
-    }
-
-    public void setModelSuggestionCour(ModelSuggestionCour modelSuggestionCour) {
-        this.modelSuggestionCour = modelSuggestionCour;
-    }
+  
 
     public String getNomEmploiTemps() {
         return nomEmploiTemps;

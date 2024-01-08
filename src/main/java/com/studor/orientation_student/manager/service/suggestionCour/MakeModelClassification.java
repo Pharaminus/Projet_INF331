@@ -1,7 +1,9 @@
 package com.studor.orientation_student.manager.service.suggestionCour;
-
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.studor.orientation_student.entities.suggestionCourEntities.ModelSuggestionCour;
@@ -27,9 +29,21 @@ public class MakeModelClassification {
         // byte[] serialisezeModel = SerializationHelper.((Serializable) tree);
         modelSuggestionCour.setSerialisezeModel(modelSuggestionCour.getSerialisezeModel());
 
+        
+
         modelSuggestionCour = modelSuggestionCourRepository.save(modelSuggestionCour);
         if (modelSuggestionCour != null)
             System.out.println("+++++======> ok test !");
+
+            // Sérialisation
+// Classifier classifier = ... // Votre modèle de classification Weka
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    // try {
+    //     // IOUtils.write writeObject(tree, outputStream);
+    // } catch (IOException e) {
+    //     // Gérer les exceptions
+    // }
+    byte[] serializedClassifier = outputStream.toByteArray();
         return modelSuggestionCour;
     }
 }

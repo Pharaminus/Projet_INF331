@@ -27,9 +27,7 @@ public class ModelSuggestionCour {
     @Lob
     private byte[] serialisezeModel;
 
-    @OneToOne
-    @JoinColumn(name = "nomEmploiTemps", referencedColumnName = "nomEmploiTemps")
-    private EmploiTemps emploiTemps;
+    
 
     public Classifier getClassifier() {
         try {
@@ -74,14 +72,6 @@ public class ModelSuggestionCour {
     }
 
   
-    public EmploiTemps getEmploiTemps() {
-        return emploiTemps;
-    }
-
-    public void setEmploiTemps(EmploiTemps emploiTemps) {
-        this.emploiTemps = emploiTemps;
-    }
-
     public Long getIdModel() {
         return idModel;
     }

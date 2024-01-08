@@ -3,8 +3,8 @@ package com.studor.orientation_student.manager.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.studor.orientation_student.entity.profilejobprediction.Category;
-import com.studor.orientation_student.entity.profilejobprediction.Jobs;
+import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.Category;
+import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.Jobs;
 
 import java.util.List;
 import java.util.Optional;

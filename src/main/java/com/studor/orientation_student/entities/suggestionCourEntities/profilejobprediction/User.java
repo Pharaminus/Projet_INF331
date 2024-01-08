@@ -1,4 +1,4 @@
-package com.studor.orientation_student.entity.profilejobprediction;
+package com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction;
 
 import com.studor.orientation_student.entities.suggestionCourEntities.ObjectifUtilisateur;
 import com.studor.orientation_student.entities.suggestionCourEntities.Programme;

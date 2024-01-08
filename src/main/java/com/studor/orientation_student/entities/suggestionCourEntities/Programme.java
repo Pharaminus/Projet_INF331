@@ -2,7 +2,7 @@ package com.studor.orientation_student.entities.suggestionCourEntities;
 
 import java.util.List;
 
-import com.studor.orientation_student.entity.profilejobprediction.User;
+import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.CascadeType;

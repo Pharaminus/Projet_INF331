@@ -1,35 +1,35 @@
-package com.studor.orientation_student.entity.establishmentsuggestion;
+package com.studor.orientation_student.entities.suggestionCourEntities.establishmentsuggestion;
 
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
-public class Domain {
+public class Training {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
+    private int duree;
+    private double cout;
 
-    @OneToMany(mappedBy = "domain", cascade =  CascadeType.ALL)
-    private List<Training> trainings;
+    @ManyToOne
+    private Domain domain;
 
     @ManyToOne
     private Establishment establishment;
 
-    public Domain(String nom, List<Training> trainings, Establishment establishment) {
+    public Training(String nom, int duree, double cout, Domain domain, Establishment establishment) {
         this.nom = nom;
-        this.trainings = trainings;
+        this.duree = duree;
+        this.cout = cout;
+        this.domain = domain;
         this.establishment = establishment;
     }
 
-    public Domain() {
+    public Training() {
     }
 
     public Long getId() {
@@ -44,24 +44,28 @@ public class Domain {
         this.nom = nom;
     }
 
-    public List<Training> getTraining() {
-        return trainings;
+    public int getDuree() {
+        return duree;
     }
 
-    public void setTraining(List<Training> trainings) {
-        this.trainings = trainings;
+    public void setDuree(int duree) {
+        this.duree = duree;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public double getCout() {
+        return cout;
     }
 
-    public List<Training> getTrainings() {
-        return trainings;
+    public void setCout(double cout) {
+        this.cout = cout;
     }
 
-    public void setTrainings(List<Training> trainings) {
-        this.trainings = trainings;
+    public Domain getDomain() {
+        return domain;
+    }
+
+    public void setDomain(Domain domain) {
+        this.domain = domain;
     }
 
     public Establishment getEstablishment() {

@@ -1,8 +1,8 @@
-package com.studor.orientation_student.entity.establishmentsuggestion;
+package com.studor.orientation_student.entities.suggestionCourEntities.establishmentsuggestion;
 
 import java.util.List;
 
-import com.studor.orientation_student.entity.profilejobprediction.Profil;
+import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.Profil;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

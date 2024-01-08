@@ -1,133 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/assets/css/acceuil.css"> -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/test.js"></script>
-
-    <style>
-        body {
-            height: 100vh;
-            width: 100%;
-        }
-        
-        .head {
-            height: 12%;
-            /* background-color: rgb(12, 51, 98); */
-            background-color: rgb(65, 18, 108);
-        
-            color: rgb(224, 154, 4);
-            padding-top: 1%;
-            
-        }
-        
-        .logo {
-            border: solid 2px white;
-            height: 60px;
-        
-            width: 60px;
-            transform: rotate(45deg);
-            margin: 0;
-            border-radius: 10%;
-        
-            margin-left: 30%;
-        
-        }
-        
-        .logo span {
-            display: inline-block;
-            transform: rotate(-45deg);
-            margin: 0;
-            padding: 0;
-            margin-top: 25%;
-            text-align: center;
-        }
-        
-        .titre {
-            text-align: left;
-            font-weight: bold;
-            font-size: 200%;
-            font-family:fantasy;
-            /* padding-right: 50%; */
-        }
-        main div{
-            border: 1px solid rgb(42, 42, 58);
-            width: 80%;
-            height: 100px;
-        }
-        label, input{
-            border: solid 1px rgb(54, 64, 154);
-        }
-    </style>
-
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studor</title>
+  <link rel="stylesheet" href="/assets/css/suggestionCour/acceuilleOrPro.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <!-- entete de la page  -->
-    <div class="head">
-        <div class="row">
-            <div class="col-2">
-                <div class="logo"> <span>StudOr</span> </div>
-            </div>
-            <div class="col-10 titre">
-                <span>STUDOR</span>
-            </div>
-        </div>
+  <!-- entete de la page  -->
+  <div class="head">
+    <div class="row">
+      <div class="col-2">
+        <div class="logo"> <span>StudOr</span> </div>
+      </div>
+      <div class="col-10 titre">
+        <span>STUDOR</span>
+      </div>
     </div>
+  </div>
+  <main>
+    <section id="main-cover">
+      <section id="contenu-up">
 
-    <main id="main-block">
-        <form action="/objectif/saveObjectif" method="post">
-            <div id="niveau-field">
-                <label for="dificulte"> Niveau de difficulte</label>
-                <input type="text" name="dificulte" placeholder="niveau">
-                <!-- <input type="radio" name="" id="dificulte1">
-                <input type="radio" name="" id="dificulte2">
-                <input type="radio" name="" id="dificulte3">
-                <input type="radio" name="" id="dificulte4">
-                <input type="radio" name="" id="dificulte5"> -->
+        <!-- <div id="card-left">
+          <div id="card-left-content">
 
-            </div>
-            <div id="jour-libre-field">
-                <label for="jour-libre">Jour libre</label>
-                    <input type="text" name="jour-libre" id="">
-                <!-- <div id="jour-block">
-                    <input type="button" value="lundi" class="jour-block" id="jour1" >
-                    <input type="button" value="mardi" class="jour-block" id="jour2">
-                    <input type="button" value="mercredi" class="jour-block" id="jour3">
-                    <input type="button" value="jeudi" class="jour-block" id="jour4">
-                    <input type="button" value="vendredi" class="jour-block" id="jour5">
-                    <input type="button" value="samedi" class="jour-block" id="jour6">
-                    <input type="button" value="dimanche" class="jour-block" id="jour7">
-                </div> -->
-            </div>
-            <div id="statu-field">
-                
-                <label for="statu"> statu vise</label><input type="" name="statuVise" id="" placeholder="statu vise">
-                <!-- <input type="button" value="cadet" class="statut" id="status1">
-                <input type="button" value="amateur" class="statut" id="status2">
-                <input type="button" value="minime" class="statut" id="status3">
-                <input type="button" value="junior" class="statut" id="status4">
-                <input type="button" value="junior intermediaire" class="statut" id="status5">
-                <input type="button" value="cadet-intermediaire" class="statut" id="status6">
-                <input type="button" value="cenior" class="statut" id="status7">
-                <input type="button" value="cenior intermediaire" class="statut" id="status8">
-                <input type="button" value="professionnel intermediaire" class="statut" id="status9">
-                <input type="button" value="professionnel" class="statut" id="status10"> -->
-            </div>
-            <div id="moyenne-field">
-                <label for="moyenne">moyenne</label><input type="number" name="moyenne" placeholder="moyenne" id="">
-            </div>
-            <div id="description-field">
-                <label for="description"> description de votre objectif</label><input type="text" name="description" id="">
-            </div>
+          </div>
+        </div>
 
-            <input type="submit" value="Valider">
-        </form>
-    </main>
-    
+        <div id="card-right">
+
+          <p>
+            Ne vous attardez plus sur des notions qui ne vous aidrons pas a atteindre vos objectifs etudier pour reussir
+            avec <br>
+            <span style="text-shadow:1px 1px 1px  rgb(0, 0, 0); font-weight: bold; font-size:150%;"> StudOr </span> <br>
+            <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">
+              Suggestion </span> <br>
+            <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">Cour, Exercice</span> <br>
+            suivez pas a pas le processus et construisez vous un futur certain, remplis de possibilite et
+            d'epanouissement. <br>
+
+          </p>
+
+        </div> -->
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="4000">
+              <!-- <img src="..." class="d-block w-100" alt="..."> -->
+              <div id="conteneur-card">
+                <div id="card-left-1" class="card-left">
+                  <div id="card-left-content">
+                  </div>
+                </div>
+                <div id="card-right">
+                  <p>
+                    Ne vous attardez plus sur des notions qui ne vous aidrons pas a atteindre vos objectifs etudier pour
+                    reussir
+                    avec <br>
+                    <span style="text-shadow:1px 1px 1px  rgb(0, 0, 0); font-weight: bold; font-size:150%;"> StudOr
+                    </span> <br>
+                    <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">
+                      Suggestion </span> <br>
+                    <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">Cour,
+                      Exercice</span>
+                    <br>
+                    suivez pas a pas le processus et construisez vous un futur certain, remplis de possibilite et
+                    d'epanouissement. <br 
+                  </p>
+                  <div id="block-btn">
+                    <button type="submit" id="btn-objectif" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Definir un objectif</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+              <!-- <img src="..." class="d-block w-100" alt="..."> -->
+              <div id="conteneur-card">
+                <div id="card-left-2" class="card-left">
+                  <div id="card-left-content">
+                  </div>
+                </div>
+                <div id="card-right">
+                  <p>
+                    Ne vous attardez plus sur des notions qui ne vous aidrons pas a atteindre vos objectifs etudier pour
+                    reussir
+                    avec <br>
+                    <span style="text-shadow:1px 1px 1px  rgb(0, 0, 0); font-weight: bold; font-size:150%;"> StudOr
+                    </span> <br>
+                    <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">
+                      Suggestion </span> <br>
+                    <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">Cour,
+                      Exercice</span>
+                    <br>
+                    suivez pas a pas le processus et construisez vous un futur certain, remplis de possibilite et
+                    d'epanouissement. <br
+                   </p>
+                   <div id="block-btn">
+                    <button type="submit" id="btn-objectif" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Definir un objectif</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+              <!-- <img src="..." class="d-block w-100" alt="..."> -->
+              <div id="conteneur-card">
+                <div id="card-left-3" class="card-left">
+                  <div id="card-left-content">
+                  </div>
+                </div>
+                <div id="card-right">
+                  <p>
+                    Ne vous attardez plus sur des notions qui ne vous aidrons pas a atteindre vos objectifs etudier pour
+                    reussir
+                    avec <br>
+                    <span style="text-shadow:1px 1px 1px  rgb(0, 0, 0); font-weight: bold; font-size:150%;"> StudOr
+                    </span> <br>
+                    <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">
+                      Suggestion </span> <br>
+                    <span style="text-shadow:1px 1px 1px  black; font-weight: bold; font-size:150%;">Cour,
+                      Exercice</span>
+                    <br>
+                    suivez pas a pas le processus et construisez vous un futur certain, remplis de possibilite et
+                    d'epanouissement. <br
+                  </p>
+                  <div id="block-btn">
+                    <button type="submit" id="btn-objectif" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Definir un objectif</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      </section>
+      
+
+
+  </main>
+  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button> -->
+  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" id="modal-content-form" action="/cour/classification" method="post">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Definir un objectif</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="div-form">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Choisir un statu professionnel</label>
+              <!-- <input type="text" class="form-control" id="recipient-name"> -->
+              <select class="form-select" aria-label="Default select example" name="statutProfessionnel">
+                <option selected value="amateur">Amateur</option>
+                <option value="cadet">cadet</option>
+                <option value="junior">junior</option>
+                <option value="junior_intermédiaire">junior_intermédiaire</option>
+                <option value="cenior">cenior</option>
+                <option value="cenior_intermédiaire">cenior_intermédiaire</option>
+                <option value="professionnel">professionnel</option>
+
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Moyenne academique vise:</label>
+              <input type="number" name="moyenneScolaire">
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">Objectif academique et professionnel</span>
+              <input type="text" class="form-control" aria-label="With textarea" value="" name="objectif">
+            </div>
+            <label for="form-select">Niveau academique</label>
+            <select class="form-select" aria-label="Default select example" name="niveau" style="text-align: center; ">
+              <option selected>l1</option>
+              <option value="l2">l2</option>
+              <option value="l3">l3</option>
+              <option value="m1">m1</option>
+              <option value="m2">m2</option>
+              <option value="d1">d1</option>
+              <option value="d2">d2</option>
+              <option value="d3">d3</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="soumettre">
+      </form>
+    </div>
+  </div>
+  </div>
 </body>
+
 </html>

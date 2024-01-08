@@ -2,9 +2,10 @@ package com.studor.orientation_student.manager.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.studor.orientation_student.entity.establishmentsuggestion.Domain;
-import com.studor.orientation_student.entity.establishmentsuggestion.Establishment;
-import com.studor.orientation_student.entity.establishmentsuggestion.Training;
+import com.studor.orientation_student.entities.suggestionCourEntities.establishmentsuggestion.Domain;
+import com.studor.orientation_student.entities.suggestionCourEntities.establishmentsuggestion.Establishment;
+import com.studor.orientation_student.entities.suggestionCourEntities.establishmentsuggestion.Training;
+
 import java.util.List;
 
 public  interface TrainingRepository extends JpaRepository<Training, Long>{

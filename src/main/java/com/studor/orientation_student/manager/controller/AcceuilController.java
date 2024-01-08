@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.studor.orientation_student.entity.profilejobprediction.Matter;
-import com.studor.orientation_student.entity.profilejobprediction.User;
+import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.Matter;
+import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
 import com.studor.orientation_student.manager.repository.MatterRepository;
 import com.studor.orientation_student.manager.repository.UserRepository;
 

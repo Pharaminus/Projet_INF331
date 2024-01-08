@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.studor.orientation_student.entities.suggestionCourEntities.ObjectifUtilisateur;
 import com.studor.orientation_student.entities.suggestionCourEntities.Programme;
-import com.studor.orientation_student.entity.profilejobprediction.User;
+import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
 import com.studor.orientation_student.manager.repository.UserRepository;
 import com.studor.orientation_student.manager.repository.suggestionCourRepository.ObjectifUtilisateurRepository;
 import com.studor.orientation_student.manager.repository.suggestionCourRepository.ProgrammeRepository;
