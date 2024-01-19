@@ -1,3 +1,5 @@
+<<<<<<<<< Temporary merge branch 1:src/main/java/com/studor/orientation_student/manager/controller/nutritionController/maladiesController.java
+=========
 package com.studor.orientation_student.manager.controller.nutritionController;
 
 import java.io.IOException;
@@ -67,3 +69,4 @@ public class MaladiesController {
         }
     }
 }
+>>>>>>>>> Temporary merge branch 2:src/main/java/com/studor/orientation_student/manager/controller/nutritionController/MaladiesController.java
