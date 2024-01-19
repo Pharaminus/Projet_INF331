@@ -34,7 +34,7 @@ public class RepasController {
         }
     }
 
-    @GetMapping("/fror")
+    @GetMapping("/from")
     public String getMethodName() {
         return "form";
     }
