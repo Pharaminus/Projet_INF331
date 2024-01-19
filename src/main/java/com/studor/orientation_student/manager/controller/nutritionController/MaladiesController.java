@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/java/com/studor/orientation_student/manager/controller/nutritionController/MaladiesController.java
 package com.studor.orientation_student.manager.controller.nutritionController;
 
 import java.io.IOException;
@@ -67,3 +68,5 @@ public class MaladiesController {
         }
     }
 }
+=======
+>>>>>>> 5c5518d1aae51446ecea22dd789d7ddde17fea9e:src/main/java/com/studor/orientation_student/manager/controller/nutritionController/maladiesController.java
