@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class EstablishmentSuggestService {
     @Autowired
     private UserRepository userRepository;
 
-    public Map<String, Object> suggestEstablishmentOnName(HttpSession session) {
+    public Map<String, Object> suggestEstablishmentOnJob(HttpSession session) {
         System.out.println((String) session.getAttribute("email"));
 
         // Check if user has already a session
@@ -50,17 +51,18 @@ public class EstablishmentSuggestService {
             // Hash which i send to JS using ajax
             Map<String, Object> establishmentMap = new HashMap<>();
             establishmentMap.put("name", establishments.get(0).getNom());
-            establishmentMap.put("location", establishments.get(0).getLocalisation());
+            establishmentMap.put("establishmentLocation", establishments.get(0).getLocalisation());
             establishmentMap.put("directorName", establishments.get(0).getNomDirecteur());
 
             Blob establishmentImageBlob = establishments.get(0).getImage();
-            byte[] establishmentImage = null;
+            byte[] establishmentImagebytes = null;
             try (InputStream inputStream = establishmentImageBlob.getBinaryStream()) {
-                establishmentImage = inputStream.readAllBytes();
+                establishmentImagebytes = inputStream.readAllBytes();
             } catch (SQLException | IOException e) {
                 e.printStackTrace();
             }
-            establishmentMap.put("image", establishmentImage);
+            String establishmentImage = Base64.getEncoder().encodeToString(establishmentImagebytes);
+            establishmentMap.put("establishmentImage", establishmentImage);
 
             Job job = user.getProfil().getJob();
             Training training = trainingRepository.findByJob(job);
@@ -81,7 +83,7 @@ public class EstablishmentSuggestService {
             training.getMatters().forEach(matter -> trainingMatterCredit.add(matter.getCoef()));
             establishmentMap.put("trainingMatterCredit", trainingMatterCredit);
 
-            System.out.println(establishmentMap);
+            // System.out.println(establishmentMap);
 
             return establishmentMap;
         }
@@ -101,23 +103,24 @@ public class EstablishmentSuggestService {
             establishments.forEach(establishment -> establishmensNameList.add(establishment.getNom()));
             establishmentMap.put("establishmentName", establishmensNameList);
 
-            List<byte[]> establishmentImageList = new ArrayList<>();
+            List<String> establishmentImageList = new ArrayList<>();
             establishments.forEach(establishment -> {
                 Blob establishmentImageBlob = establishment.getImage();
-                byte[] establishmentImage = null;
+                byte[] establishmentImagebytes = null;
 
                 try (InputStream inputStream = establishmentImageBlob.getBinaryStream()) {
-                    establishmentImage = inputStream.readAllBytes();
+                    establishmentImagebytes = inputStream.readAllBytes();
                 } catch (SQLException | IOException e) {
                     e.printStackTrace();
                 }
+                String establishmentImage = Base64.getEncoder().encodeToString(establishmentImagebytes);
                 establishmentImageList.add(establishmentImage);
             });
-            establishmentMap.put("imageList", establishmentImageList);
+            establishmentMap.put("establishmentImageList", establishmentImageList);
 
             List<String> establishmentLocation = new ArrayList<>();
             establishments.forEach(establishment -> establishmentLocation.add(establishment.getLocalisation()));
-            establishmentMap.put("locationList", establishmentLocation);
+            establishmentMap.put("establishmentLocationList", establishmentLocation);
 
             List<String> establishmentDirectorNameList = new ArrayList<>();
             establishments.forEach(establishment -> establishmentDirectorNameList.add(establishment.getNomDirecteur()));
@@ -130,15 +133,10 @@ public class EstablishmentSuggestService {
                 }
             }));
             System.out.println(establishmensNameList);
-            establishmentMap.put("estabishmentDomainNamelist", establishmentDomainNameList);
+            establishmentMap.put("estabishmentDomainNameList", establishmentDomainNameList);
 
             return establishmentMap;
         }
-        return null;
-    }
-
-    public Map<String, Object> getEstablishment(HttpSession session, String string){
-        //TODO more here
         return null;
     }
 }

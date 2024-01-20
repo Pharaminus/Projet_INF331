@@ -1,7 +1,5 @@
 package com.studor.orientation_student.manager.repositories.establishmentsuggestcontroller;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,5 +19,4 @@ public interface EstablishmentRepository extends JpaRepository<Establishment, Lo
     Establishment findByImage(Blob image);
     Establishment findByNomDirecteur(String nomDirecteur);
     List<Establishment> findByProfil(Profil profil);
-    Page<Establishment> findAll(Pageable pageable);
 }

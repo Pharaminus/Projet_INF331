@@ -41,7 +41,7 @@ public class LoginController {
             session.setAttribute("sessionId", sessionId);
             str = (String)session.getAttribute("email");
             System.out.println("====================>>>>>>>>>>>>"+str);
-            return "establishment-job-templates/profile-job-predicted";
+            return "establishment-job-templates/job-prediction";
         }
         else{
             return testForm();

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,12 +72,13 @@ public class JobPredictService {
             jobMap.put("establishment", establishmentNameList);
             jobMap.put("salary", job.getSalaire());
             Blob jobImageBlob = job.getImage();
-            byte[] jobImage = null;
+            byte[] jobImagebytes = null;
             try (InputStream inputStream = jobImageBlob.getBinaryStream()) {
-                jobImage = inputStream.readAllBytes();
+                jobImagebytes = inputStream.readAllBytes();
             } catch (SQLException | IOException e) {
                 e.printStackTrace();
             }
+            String jobImage = Base64.getEncoder().encodeToString(jobImagebytes);
             jobMap.put("jobImage", jobImage);
             jobMap.put("option", job.getOption().getNom());
 

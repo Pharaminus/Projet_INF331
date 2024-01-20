@@ -15,6 +15,7 @@ import com.studor.orientation_student.entities.profilejobprediction.User;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.LevelRepository;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.MatterRepository;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.NotesReportRepository;
+import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.OptionRepository;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -34,6 +35,9 @@ public class NotesReportSaverService {
 
     @Autowired
     private LevelRepository levelRepository;
+
+    @Autowired
+    private OptionRepository optionRepository;
 
     public String checkIfNotesReportExists(HttpSession session){
 
@@ -59,14 +63,19 @@ public class NotesReportSaverService {
         return allCodeLevel;
     }
 
+    public List<String> getAllOption(){
+        List<String> allNameOption = new ArrayList<>();
+        optionRepository.findAll().forEach(option -> allNameOption.add(option.getNom()));
+        return allNameOption;
+    }
+
     public String saveNotesReport(HttpSession session, double mathNote, double phyNote,double infoNote,
-        double chmNote, double engNote, double fraNote, String mention, String type, String niveau){
+        double chmNote, double engNote, double fraNote, String type, String niveau){
 
             if(session.getAttribute("email") != null){
                 String userEmail = (String)session.getAttribute("email");
                 User user = userRepository.findByEmail(userEmail);
                 NotesReport notesReport = new NotesReport();
-                notesReport.setMention(mention);
                 Level level = levelRepository.findByCode(niveau);
                 List<Matter> matters = matterRepository.findByLevel(level);
                 System.out.println("----------========="+type+"===============-----------------=============="+niveau);
@@ -79,6 +88,21 @@ public class NotesReportSaverService {
                 int total = mathCoef + phyCoef + infoCoef + chmCoef + engCoef + fraCoef;
                 double mean = (mathNote*mathCoef + phyNote*phyCoef + infoNote*infoCoef + chmNote*chmCoef + engNote*engCoef + fraNote*fraCoef)/total;
                 notesReport.setMoyenne(mean);
+                if(mean < 12.00 && mean >= 10.00){
+                    notesReport.setMention("Passable");
+                }
+                else if(mean < 14.00 && mean >= 12.00){
+                    notesReport.setMention("Assez Bien");
+                }
+                else if(mean < 16.00 && mean >= 14.00){
+                    notesReport.setMention("Bien");
+                }
+                else if(mean < 18.00 && mean >= 16.00){
+                    notesReport.setMention("Tres Bien");
+                }
+                else if(mean >= 18.00){
+                    notesReport.setMention("Excellent");
+                }
                 List<Notes> notes = new ArrayList<>();
                 notes.add(new Notes(mathNote, notesReport, matters.get(0)));
                 notes.add(new Notes(phyNote, notesReport, matters.get(1)));
