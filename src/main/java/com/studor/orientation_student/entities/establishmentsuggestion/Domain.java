@@ -2,7 +2,7 @@ package com.studor.orientation_student.entities.establishmentsuggestion;
 
 import java.util.List;
 
-import com.studor.orientation_student.entities.profilejobprediction.Option;
+import com.studor.orientation_student.entities.profilejobprediction.Subdomain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,9 +23,9 @@ public class Domain {
     private List<Establishment> establishments;
 
     @OneToMany(mappedBy = "domain")
-    private List<Option> options;
+    private List<Subdomain> options;
 
-    public Domain(String nom, String description, List<Establishment> establishments, List<Option> options) {
+    public Domain(String nom, String description, List<Establishment> establishments, List<Subdomain> options) {
         this.nom = nom;
         this.description = description;
         this.establishments = establishments;
@@ -63,11 +63,11 @@ public class Domain {
         this.establishments = establishments;
     }
 
-    public List<Option> getOptions() {
+    public List<Subdomain> getOptions() {
         return options;
     }
 
-    public void setOptions(List<Option> options) {
+    public void setOptions(List<Subdomain> options) {
         this.options = options;
     }
 }

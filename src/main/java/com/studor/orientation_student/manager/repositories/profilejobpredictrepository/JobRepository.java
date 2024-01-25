@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.studor.orientation_student.entities.profilejobprediction.Job;
-import com.studor.orientation_student.entities.profilejobprediction.Option;
+import com.studor.orientation_student.entities.profilejobprediction.Subdomain;
 
 import java.util.List;
 import java.sql.Blob;
@@ -17,6 +17,6 @@ public interface JobRepository extends JpaRepository<Job, Long>{
     Job findByNom(String nom);
     List<Job> findBySalaire(Long salaire);
     Job findByImage(Blob image);
-    List<Job> findByOption(Option option);
+    List<Job> findByOption(Subdomain option);
     Job findByTraining(Training training);
 }

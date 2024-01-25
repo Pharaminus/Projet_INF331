@@ -18,12 +18,12 @@ public class Level {
     private String code;
 
     @ManyToOne
-    private Option option;
+    private Subdomain option;
 
     @OneToMany(mappedBy = "level")
     private List<Matter> matters;
 
-    public Level(String code, Option option, List<Matter> matters) {
+    public Level(String code, Subdomain option, List<Matter> matters) {
         this.code = code;
         this.option = option;
         this.matters = matters;
@@ -44,11 +44,11 @@ public class Level {
         this.code = code;
     }
 
-    public Option getOption() {
+    public Subdomain getOption() {
         return option;
     }
 
-    public void setOption(Option option) {
+    public void setOption(Subdomain option) {
         this.option = option;
     }
 

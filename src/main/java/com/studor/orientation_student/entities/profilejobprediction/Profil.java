@@ -5,11 +5,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.studor.orientation_student.entities.establishmentsuggestion.Establishment;
+import com.studor.orientation_student.entities.suggestionCourEntities.ObjectifUtilisateur;
+import com.studor.orientation_student.entities.suggestionCourEntities.Programme;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -48,9 +52,17 @@ public class Profil {
     @OneToMany(mappedBy = "profil")
     private List<Establishment> establishments;
 
+    @OneToMany(mappedBy = "profil", cascade = CascadeType.ALL)
+    private List<Programme> programmes;
+
+    @OneToOne
+    @JoinColumn(name = "idObjectif", referencedColumnName = "idObjectif")
+    private ObjectifUtilisateur objectifProfil;
+
     public Profil(String nom, String prenom, LocalDate dateDeNaissance, String sexe, String loisirs,
             String metierDuPere, String metierDeLaMere, String religion, String sport, Blob photoProfile, Job job,
-            NotesReport notesReport, User user, List<Establishment> establishments) {
+            NotesReport notesReport, User user, List<Establishment> establishments, List<Programme> programmes,
+            ObjectifUtilisateur objectifProfil) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateDeNaissance = dateDeNaissance;
@@ -65,6 +77,8 @@ public class Profil {
         this.notesReport = notesReport;
         this.user = user;
         this.establishments = establishments;
+        this.programmes = programmes;
+        this.objectifProfil = objectifProfil;
     }
 
     public Profil() {
@@ -184,5 +198,21 @@ public class Profil {
 
     public void setEstablishments(List<Establishment> establishments) {
         this.establishments = establishments;
+    }
+
+    public ObjectifUtilisateur getObjectifUtilisateur() {
+        return objectifProfil;
+    }
+
+    public void setObjectifUtilisateur(ObjectifUtilisateur objectifProfil) {
+        this.objectifProfil = objectifProfil;
+    }
+
+    public List<Programme> getProgrammes() {
+        return programmes;
+    }
+
+    public void setProgrammes(List<Programme> programmes) {
+        this.programmes = programmes;
     }
 }

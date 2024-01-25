@@ -1,4 +1,4 @@
-package com.studor.orientation_student.manager.repository.suggestionCourRepository;
+package com.studor.orientation_student.manager.repositories.suggestionCourRepository;
 
 import java.util.List;
 

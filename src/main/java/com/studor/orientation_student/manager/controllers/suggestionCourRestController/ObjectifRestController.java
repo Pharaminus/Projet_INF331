@@ -1,24 +1,23 @@
-package com.studor.orientation_student.manager.controller.suggestionCourRestController;
+package com.studor.orientation_student.manager.controllers.suggestionCourRestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.studor.orientation_student.entities.suggestionCourEntities.DataModel;
-import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
-import com.studor.orientation_student.manager.repository.UserRepository;
-import com.studor.orientation_student.manager.service.suggestionCour.ClassificationData;
-import com.studor.orientation_student.manager.service.suggestionCour.DataGeneration;
-import com.studor.orientation_student.manager.service.suggestionCour.GetAbsoluePath;
+// import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
+// import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.UserRepository;
+import com.studor.orientation_student.manager.services.profilepredictionservices.suggestionCour.DataGeneration;
+import com.studor.orientation_student.manager.services.profilepredictionservices.suggestionCour.GetAbsoluePath;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
+// import jakarta.servlet.http.HttpServletRequest;
+// import jakarta.servlet.http.HttpSession;
 import weka.classifiers.Classifier;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
@@ -27,10 +26,10 @@ import weka.core.converters.ConverterUtils.DataSource;
 @RestController
 @RequestMapping("/cour")
 public class ObjectifRestController {
-    @Autowired
-    private HttpServletRequest request;
-    @Autowired
-    private UserRepository userRepository;
+    // @Autowired
+    // private HttpServletRequest request;
+    // @Autowired
+    // private UserRepository userRepository;
 
     @PostMapping("/classification")
     public String effectuerClassification(@RequestParam("statutProfessionnel") String statutProfessionnel, @RequestParam("moyenneScolaire") Double moyenneScolaire, @RequestParam("niveau") String niveau, @RequestParam("objectif") String objectif) throws Exception {

@@ -3,9 +3,9 @@ package com.studor.orientation_student.entities.suggestionCourEntities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
+import com.studor.orientation_student.entities.profilejobprediction.User;
 
-import jakarta.annotation.Generated;
+// import jakarta.annotation.Generated;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

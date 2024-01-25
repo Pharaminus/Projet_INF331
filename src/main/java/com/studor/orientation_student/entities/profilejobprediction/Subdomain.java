@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Option {
+public class Subdomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class Option {
     @OneToMany(mappedBy = "option")
     private List<Level> levels;
 
-    public Option(String nom, String description, Domain domain, List<Job> jobs, List<Level> levels) {
+    public Subdomain(String nom, String description, Domain domain, List<Job> jobs, List<Level> levels) {
         this.nom = nom;
         this.description = description;
         this.domain = domain;
@@ -37,7 +37,7 @@ public class Option {
         this.levels = levels;
     }
 
-    public Option() {
+    public Subdomain() {
     }
 
     public Long getId() {

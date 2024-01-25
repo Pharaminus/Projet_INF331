@@ -1,9 +1,9 @@
-package com.studor.orientation_student.manager.controller.suggestionCourRestController;
+package com.studor.orientation_student.manager.controllers.suggestionCourRestController;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.studor.orientation_student.manager.service.suggestionCour.GetAbsoluePath;
+import com.studor.orientation_student.manager.services.profilepredictionservices.suggestionCour.GetAbsoluePath;
 
 import weka.classifiers.trees.J48;
 import weka.core.Instance;

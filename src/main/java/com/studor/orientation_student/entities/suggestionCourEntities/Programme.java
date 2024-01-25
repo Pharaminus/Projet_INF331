@@ -1,10 +1,10 @@
 package com.studor.orientation_student.entities.suggestionCourEntities;
 
-import java.util.List;
+// import java.util.List;
 
-import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
+import com.studor.orientation_student.entities.profilejobprediction.Profil;
 
-import jakarta.annotation.Generated;
+// import jakarta.annotation.Generated;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,8 +24,8 @@ public class Programme {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private User user;
+    @JoinColumn(name = "idProfil")
+    private Profil profil;
 
     @ManyToOne
     @JoinColumn(name = "idNiveau")
@@ -34,9 +34,6 @@ public class Programme {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idEmploiTemps", referencedColumnName = "idEmploiTemps")
     private EmploiTemps emploiTemps;
-
-    
-   
 
     public Programme() {
     }
@@ -57,11 +54,11 @@ public class Programme {
         this.niveauAcademique = niveauAcademique;
     }
 
-    public User getUser() {
-        return user;
+    public Profil getProfil() {
+        return profil;
     }
-    public void setUser(User user) {
-        this.user = user;
+    public void setProfil(Profil profil) {
+        this.profil = profil;
     }
 
     
@@ -104,9 +101,4 @@ public class Programme {
         this.description = description;
     }
 
-    
-    
-
-    
-
-}   
+}

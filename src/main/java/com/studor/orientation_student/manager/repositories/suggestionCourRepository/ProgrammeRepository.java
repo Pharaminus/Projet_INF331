@@ -1,9 +1,9 @@
-package com.studor.orientation_student.manager.repository.suggestionCourRepository;
+package com.studor.orientation_student.manager.repositories.suggestionCourRepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.studor.orientation_student.entities.suggestionCourEntities.Programme;
-import java.util.List;
+// import java.util.List;
 
 
 public interface ProgrammeRepository extends JpaRepository<Programme, Long>{

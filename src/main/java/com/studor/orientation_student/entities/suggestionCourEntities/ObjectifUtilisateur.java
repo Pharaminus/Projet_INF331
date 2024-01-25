@@ -1,7 +1,6 @@
 package com.studor.orientation_student.entities.suggestionCourEntities;
 
-
-import com.studor.orientation_student.entities.suggestionCourEntities.profilejobprediction.User;
+import com.studor.orientation_student.entities.profilejobprediction.Profil;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,8 +22,8 @@ public class ObjectifUtilisateur {
     private String description;
 
 
-    @OneToOne(mappedBy = "objectifUtilisateur", cascade = CascadeType.ALL)
-    private User user;
+    @OneToOne(mappedBy = "objectifProfil", cascade = CascadeType.ALL)
+    private Profil profil;
 
     
     public ObjectifUtilisateur() {
@@ -89,17 +88,13 @@ public class ObjectifUtilisateur {
     }
 
 
-    public User getUser() {
-        return user;
+    public Profil getProfil() {
+        return profil;
     }
 
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setProfil(Profil profil) {
+        this.profil = profil;
     }
 
-
-   
-
-    
 }

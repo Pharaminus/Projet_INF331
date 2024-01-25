@@ -1,4 +1,4 @@
-package com.studor.orientation_student.manager.repository.suggestionCourRepository;
+package com.studor.orientation_student.manager.repositories.suggestionCourRepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

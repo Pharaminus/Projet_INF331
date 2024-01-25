@@ -1,8 +1,7 @@
-package com.studor.orientation_student.manager.service.suggestionCour;
-
+package com.studor.orientation_student.manager.services.profilepredictionservices.suggestionCour;
 
 import weka.classifiers.trees.J48;
-import weka.core.Instance;
+// import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
 import weka.classifiers.Classifier;

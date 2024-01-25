@@ -32,13 +32,13 @@ public class Job {
     private List<Profil> profils;
 
     @ManyToOne
-    private Option option;
+    private Subdomain option;
 
     @OneToOne
     private Training training;
 
     public Job(String nom, String description, Long salaire, Blob image, List<Profil> profils,
-            Option option, Training training) {
+            Subdomain option, Training training) {
         this.nom = nom;
         this.description = description;
         this.salaire = salaire;
@@ -95,11 +95,11 @@ public class Job {
         this.profils = profils;
     }
 
-    public Option getOption() {
+    public Subdomain getOption() {
         return option;
     }
 
-    public void setOption(Option option) {
+    public void setOption(Subdomain option) {
         this.option = option;
     }
 

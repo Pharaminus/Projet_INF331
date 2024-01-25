@@ -1,4 +1,4 @@
-package com.studor.orientation_student.manager.controller;
+package com.studor.orientation_student.manager.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

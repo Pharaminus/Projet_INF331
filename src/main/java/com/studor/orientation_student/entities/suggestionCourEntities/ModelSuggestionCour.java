@@ -6,17 +6,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import org.hibernate.annotations.Type;
+// import org.hibernate.annotations.Type;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
-import jakarta.persistence.OneToOne;
+// import jakarta.persistence.OneToOne;
 import weka.classifiers.Classifier;
-import weka.core.SerializationHelper;
+// import weka.core.SerializationHelper;
 
 @Entity
 public class ModelSuggestionCour {

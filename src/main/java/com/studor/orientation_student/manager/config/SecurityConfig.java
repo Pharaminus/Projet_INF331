@@ -10,7 +10,7 @@
 // @Configuration
 //    public class SecurityConfig extends WebSecurityConfiguration {
 
-       
+    
 //        protected void configure(HttpSecurity http) throws Exception {
 //            http
 //                    .sessionManagement(management -> management

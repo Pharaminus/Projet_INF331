@@ -26,13 +26,13 @@ public class User {
     @JoinColumn(name = "profil_id")
     private Profil profil;
 
-    public User() {
-    }
     public User(String email, String nom, String motDePasse, Profil profil) {
         this.email = email;
         this.nom = nom;
         this.motDePasse = motDePasse;
         this.profil = profil;
+    }
+    public User() {
     }
     public String getEmail() {
         return email;
