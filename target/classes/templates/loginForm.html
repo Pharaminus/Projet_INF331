@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/loginForm.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div class="row" id="conten-form">
+            <div class="col1" id="presentation-left">
+                <img src="/assets/image/icone/istockphoto-1135341047-1024x1024.jpg" id="img-presentation-left" alt="" srcset="">
+            </div>
+
+            <div class="col2" id="presentation-rigth">
+
+
+                <form th:action="@{/studor/loginUser}" method="post" id="form-login">
+                    <div id="logo">
+                        <span>StudOr Orientation academique , Professionelle et Nutritionel</span>
+                    </div>
+                    <div id="icone">
+                        <img src="/assets/image/icone/login_gov_icon_146024.png" alt="" srcset="" style="height: 80%; width:70%">
+                    </div>
+                    <div class="input-element" id="input-element-email">
+                        <span id="label-element"> <img src="/assets/image/icone/socialemailcircularbutton_80177.png" alt="" srcset="" class="label-img"> </span>
+                        <input type="email" name="email" id="email" placeholder="Entrer votre Email" class="input-filed"
+                            required>
+                    </div>
+                    <div class="input-element" id="input-element-pass">
+                        <span id="label-element"> <img src="/assets/image/icone/password_3715.ico" alt="" srcset="" class="label-img"></span>
+                        <input type="password" name="pass" id="pass" placeholder="Entrer votre mot de pass"
+                            class="input-filed" required>
+                    </div>
+                    <div id="bouton">
+                        <input type="submit" value="login" id="bouton-login">
+                    </div>
+                    <div id="make-account">
+                        <span>Dont't have an account yet ? <br> <a href="http://">Create an account </a></span>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

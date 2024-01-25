@@ -1,0 +1,228 @@
+body{
+    padding: 0;
+    margin: 0;
+    /* width: 99.2%; */
+    height: 100vh;
+    background-color: red;
+}
+
+.head {
+    height: 13%;
+    /* background-color: rgb(12, 51, 98); */
+    background-color: rgb(56, 5, 66);
+    border-bottom: 2px solid rgb(224, 154, 4);
+
+    color: rgb(224, 154, 4);
+    padding-top: 1%;
+    /* z-index: 999; */
+    
+}
+
+.logo {
+    border: solid 2px white;
+    height: 60px;
+
+    width: 60px;
+    transform: rotate(45deg);
+    margin: 0;
+    border-radius: 10%;
+
+    margin-left: 30%;
+
+}
+
+.logo span {
+    display: inline-block;
+    transform: rotate(-45deg);
+    margin: 0;
+    padding: 0;
+    margin-top: 25%;
+    text-align: center;
+}
+
+.titre {
+    text-align: left;
+    font-weight: bold;
+    font-size: 200%;
+    font-family:fantasy;
+    /* padding-right: 50%; */
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 2px blue; */
+    height: 87%;
+    /* background-color: rgb(253, 253, 253); */
+    background: linear-gradient(rgb(173, 140, 191), rgba(235, 140, 73, 0.571) ,rgba(158, 67, 215, 0.331));
+   /* background-image: url('/assets/image/image_suggestion_cour/logo_itech_pour_les_cour_scolaire.png'); */
+   /* background-repeat: no-repeat; */
+}
+
+#main-cover{
+    /* background-color: rgba(205, 66, 255, 0.302); */
+    height: 100%;
+}
+
+#contenu-up{
+    border-bottom: 1px solid rgba(37, 3, 52, 0.284);
+    border-right:1px solid rgba(37, 3, 52, 0.284) ;
+
+    border-top: 2px solid rgba(224, 154, 4, 0.383);
+    border-left:2px solid rgba(224, 154, 4, 0.383);
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.576);
+    width: 100%;
+    display: flex;
+    scale: 0.87;
+    flex-direction: row;
+    box-shadow: 5px 0px 20px 10px  rgba(208, 203, 208, 0.385);
+}
+
+#conteneur-card{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.card-left{
+    /* background-color: rgba(107, 18, 163, 0.601); */
+
+    border: 1px solid rgb(232, 216, 180);
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px 2px rgb(144, 143, 143);
+    height: 100%;
+    width: 60%;
+    scale: 0.9;
+
+}
+#card-left-1{
+    background-image: url('/assets/image/image_suggestion_cour/etudiant_informaticien_itech_definisant_ses_cour_et_exercice.png');
+
+}
+#card-left-2{
+    background-image: url('/assets/image/image_suggestion_cour/icone_en_itech_exercice_de_science.png');
+}
+
+
+
+#card-left-3{
+    background-image: url('/assets/image/image_suggestion_cour/etudiants_de_mathematique_et_informatique.png');
+
+}
+
+#card-left-content{
+    background-color: rgba(147, 31, 255, 0.201);
+    border: 1px solid rgb(232, 216, 180);
+
+    /* background-image: url('/assets/image/librairie.jpg'); */
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+#card-right{
+    /* border: 1px solid rgba(21, 15, 185, 0.358); */
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    height: 100%;
+    width: 40%;
+    scale: 0.9;
+    font-size: 200%;
+    box-shadow: 2px 2px 2px 1px rgb(29, 28, 28);
+    /* background-color: rgb(64, 255, 0); */
+    padding-bottom: 0;
+}
+
+#card-right p{
+    padding-top: 5%;
+    display: inline-block;
+    height: 85%;
+    width: 100%;
+    text-align: left;
+    padding-left: 4%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:600;
+    text-shadow: 1px 1px 1px  black;
+    color: rgb(37, 5, 68);
+    /* background-color: red; */
+    margin: 0;
+}
+
+#block-btn{
+    height: 15%;
+    width: 100%;
+    margin: 0;
+    /* padding-right: 0.8%; */
+}
+
+#btn-objectif{
+  
+    height: 100%;
+    width: 100%;
+    display: block;
+    box-shadow: 1px 1px 1px 2px rgb(18, 18, 18);
+    font-size: 25px;
+    text-overflow: 1px 1px 1px 1px black;
+    /* scale: 0.85; */
+    background-color: rgb(56, 5, 66);
+    font-weight: bold;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+        background-color: rgb(56, 5, 66);
+        color: rgb(255, 157, 0);
+    }
+    50%{
+        /* opacity: 0.3; */
+        background-color: rgb(134, 42, 153);
+        color: rgb(255, 157, 0);
+    }
+    100%{
+        opacity: 1;
+        background-color: rgb(56, 5, 66);
+        color: rgb(255, 157, 0);
+    }
+}
+
+#btn-objectif{
+    animation: blink 1s infinite;
+}
+
+#carouselExampleInterval{
+    height: 100%;
+    /* border: solid 1px red; */
+    width: 100%;
+}
+
+.carousel-inner{
+    height: 100%;
+    /* border: solid 1px rgb(9, 114, 112); */
+    width: 100%;
+}
+
+.carousel-item{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    border: solid 1px rgb(9, 114, 16);
+    width: 100%;
+}
+#modal-content-form{
+    background-color: rgb(78, 8, 92);
+    color: yellow;
+
+}
+
+select, input, option{
+   font-weight: bold;
+}
+
+
+.input-group{
+    margin-bottom: 5%;
+}

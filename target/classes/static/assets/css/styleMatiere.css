@@ -1,0 +1,84 @@
+body{
+    background-color: rgb(105, 86, 66);
+    height: 800px;
+}
+
+form{
+    text-align: center;
+    background-color: rgb(21, 11, 1);
+    height: 40%;
+    width: 40%;
+    margin-top: 10%;
+    margin-left: 30%;
+    padding-top: 10%;
+    color: rgb(212, 113, 0);
+    box-shadow:  5px 5px 5px rgb(13, 8, 6);
+
+}
+
+ label, input{
+    display: inline-block;
+    font-size: 110%;
+    margin-top: 5%;
+    height: 6%;
+    width: 30%;
+}
+
+input{
+    background-color: rgb(174, 150, 122);
+    border: solid 1px black;
+    font-weight: bold;
+    text-align: center;
+}
+
+#boutton{
+    background-color: rgb(181, 96, 0);
+    height: 15%;
+    border-radius: 5%;
+    border: solid 3px rgb(55, 44, 29);
+}
+#boutton:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#popup{
+    display: none;
+    position:absolute;
+    left: 35%;
+    bottom: 40%;
+    z-index: 99;
+    height: 25%;
+    width: 30%;
+    border: solid 1px rgb(10, 10, 10);
+    background-color: rgba(7, 5, 2, 0.737);
+    box-shadow: 1px 2px 7px 2px rgb(41, 40, 40);
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+}
+
+#popup span{
+    display: inline-block;
+    margin-top: 20%;
+    font-size: 120%;
+    
+}
+
+
+#barre{
+    position: relative;
+    z-index: 990;
+    left: 45%;
+    bottom: 30%;
+    background-color: rgb(83, 45, 7);
+    /* transform: rotate(10deg); */
+    /* border: 8px solid red; */
+    height: 0.5%;
+    padding: 0;
+    /* border-top: none; */
+    /* border-bottom: 2%; */
+    width: 10%;
+    /* transform: rotate(10deg); */
+}
