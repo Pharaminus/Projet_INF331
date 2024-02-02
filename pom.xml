@@ -24,7 +24,6 @@
 			<version>8.0.33</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>weka-dev</artifactId>

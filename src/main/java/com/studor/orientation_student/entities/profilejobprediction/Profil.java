@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.studor.orientation_student.entities.establishmentsuggestion.Establishment;
+import com.studor.orientation_student.entities.suggestionCourEntities.NiveauAcademique;
 import com.studor.orientation_student.entities.suggestionCourEntities.ObjectifUtilisateur;
 import com.studor.orientation_student.entities.suggestionCourEntities.Programme;
 
@@ -59,10 +60,13 @@ public class Profil {
     @JoinColumn(name = "idObjectif", referencedColumnName = "idObjectif")
     private ObjectifUtilisateur objectifProfil;
 
+    @OneToMany(mappedBy = "profil")
+    private List<NiveauAcademique> niveauAcademiques;
+
     public Profil(String nom, String prenom, LocalDate dateDeNaissance, String sexe, String loisirs,
             String metierDuPere, String metierDeLaMere, String religion, String sport, Blob photoProfile, Job job,
             NotesReport notesReport, User user, List<Establishment> establishments, List<Programme> programmes,
-            ObjectifUtilisateur objectifProfil) {
+            ObjectifUtilisateur objectifProfil, List<NiveauAcademique> niveauAcademiques) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateDeNaissance = dateDeNaissance;
@@ -79,6 +83,7 @@ public class Profil {
         this.establishments = establishments;
         this.programmes = programmes;
         this.objectifProfil = objectifProfil;
+        this.niveauAcademiques = niveauAcademiques;
     }
 
     public Profil() {
@@ -214,5 +219,21 @@ public class Profil {
 
     public void setProgrammes(List<Programme> programmes) {
         this.programmes = programmes;
+    }
+
+    public ObjectifUtilisateur getObjectifProfil() {
+        return objectifProfil;
+    }
+
+    public void setObjectifProfil(ObjectifUtilisateur objectifProfil) {
+        this.objectifProfil = objectifProfil;
+    }
+
+    public List<NiveauAcademique> getNiveauAcademiques() {
+        return niveauAcademiques;
+    }
+
+    public void setNiveauAcademiques(List<NiveauAcademique> niveauAcademiques) {
+        this.niveauAcademiques = niveauAcademiques;
     }
 }

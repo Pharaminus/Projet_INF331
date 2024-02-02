@@ -3,7 +3,7 @@ package com.studor.orientation_student.entities.suggestionCourEntities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.studor.orientation_student.entities.profilejobprediction.User;
+import com.studor.orientation_student.entities.profilejobprediction.Profil;
 
 // import jakarta.annotation.Generated;
 import jakarta.persistence.CascadeType;
@@ -26,8 +26,7 @@ public class NiveauAcademique {
     private String objectif;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private User user;
+    private Profil profil;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idProgramme")
@@ -36,8 +35,6 @@ public class NiveauAcademique {
     @OneToMany(mappedBy = "niveauAcademique", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Discipline> disciplines = new ArrayList<>();
 
-    
-    
     public NiveauAcademique() {
     }
 
@@ -59,12 +56,12 @@ public class NiveauAcademique {
         return nomNiveau;
     }
 
-    public User getUser() {
-        return user;
+    public Profil getProfil() {
+        return profil;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setProfil(Profil profil) {
+        this.profil = profil;
     }
 
     public Programme getProgramme() {
@@ -102,8 +99,4 @@ public class NiveauAcademique {
     public void setObjectif(String objectif) {
         this.objectif = objectif;
     }
-    
-    
-
-
 }
