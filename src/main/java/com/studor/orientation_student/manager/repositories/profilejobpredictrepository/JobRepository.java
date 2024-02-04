@@ -14,7 +14,7 @@ import com.studor.orientation_student.entities.establishmentsuggestion.Training;
 
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long>{
-    Job findByNom(String nom);
+    Job findByNomIgnoreCase(String nom);
     List<Job> findBySalaire(Long salaire);
     Job findByImage(Blob image);
     List<Job> findByOption(Subdomain option);

@@ -41,10 +41,14 @@ public class EstablishmentSuggestService {
             String email = (String) session.getAttribute("email");
 
             User user = userRepository.findByEmail(email);
-            List<Establishment> establishments = user.getProfil().getJob().getTraining().getEstablishments();
-
-            if (user.getProfil().getEstablishments() == null) {
-                user.getProfil().setEstablishments(establishments);
+            Job job = user.getProfil().getJob();
+            List<Establishment> establishments = job.getTraining().getEstablishments();
+            
+            if (user.getProfil().getEstablishments().isEmpty()) {
+                List<Establishment> currentEstablishments = new ArrayList<>();
+                currentEstablishments.add(establishments.get(0));
+                System.out.println(establishments);
+                user.getProfil().setEstablishments(currentEstablishments);
                 userRepository.save(user);
             }
 
@@ -64,7 +68,6 @@ public class EstablishmentSuggestService {
             String establishmentImage = Base64.getEncoder().encodeToString(establishmentImagebytes);
             establishmentMap.put("establishmentImage", establishmentImage);
 
-            Job job = user.getProfil().getJob();
             Training training = trainingRepository.findByJob(job);
 
             establishmentMap.put("trainingName", training.getNom());
@@ -76,8 +79,8 @@ public class EstablishmentSuggestService {
             training.getMatters().forEach(matter -> trainingMatterName.add(matter.getNom()));
             establishmentMap.put("trainingMatterName", trainingMatterName);
 
-            String trainingMatterLevel = training.getMatters().get(0).getLevel().getCode();
-            establishmentMap.put("trainingMatterLevel", trainingMatterLevel);
+            // String trainingMatterLevel = training.getMatters().get(0).getLevel().getCode();
+            // establishmentMap.put("trainingMatterLevel", trainingMatterLevel);
 
             List<Integer> trainingMatterCredit = new ArrayList<>();
             training.getMatters().forEach(matter -> trainingMatterCredit.add(matter.getCoef()));

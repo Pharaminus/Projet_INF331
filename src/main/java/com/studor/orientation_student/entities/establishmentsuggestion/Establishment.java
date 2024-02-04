@@ -11,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Establishment {
@@ -31,17 +30,18 @@ public class Establishment {
     @ManyToMany(mappedBy = "establishments")
     private List<Domain> domains;
 
-    @ManyToOne
-    private Profil profil;
+    @ManyToMany(mappedBy = "establishments")
+    private List<Profil> profils;
 
-    public Establishment(String nom, String localisation, String nomDirecteur, Blob image,
-            List<Domain> domains, Profil profil) {
+    public Establishment(String nom, String localisation, String nomDirecteur, Blob image, List<Training> trainings,
+            List<Domain> domains, List<Profil> profils) {
         this.nom = nom;
         this.localisation = localisation;
         this.nomDirecteur = nomDirecteur;
         this.image = image;
+        this.trainings = trainings;
         this.domains = domains;
-        this.profil = profil;
+        this.profils = profils;
     }
 
     public Establishment() {
@@ -75,14 +75,6 @@ public class Establishment {
         this.domains = domains;
     }
 
-    public Profil getProfil() {
-        return profil;
-    }
-
-    public void setProfil(Profil profil) {
-        this.profil = profil;
-    }
-
     public String getNomDirecteur() {
         return nomDirecteur;
     }
@@ -105,5 +97,13 @@ public class Establishment {
 
     public void setTrainings(List<Training> trainings) {
         this.trainings = trainings;
+    }
+
+    public List<Profil> getProfils() {
+        return profils;
+    }
+
+    public void setProfils(List<Profil> profils) {
+        this.profils = profils;
     }
 }

@@ -7,9 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 // import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class NotesReport {
@@ -24,7 +24,7 @@ public class NotesReport {
     // @JoinColumn(name = "notes")
     private List<Notes> notes;
 
-    @OneToOne
+    @ManyToOne
     private Profil profil;
 
     public NotesReport(String mention, double moyenne, List<Notes> notes, Profil profil) {

@@ -83,34 +83,48 @@ function getJobInfo() {
     xhr.send()
 }
 
-function loadTypeFromDatabase() {
-    let xhr = new XMLHttpRequest()
-    xhr.open("GET", "/job-api/all-option", true)
+let ifOptionHaveLoad = false
 
-    xhr.onload = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText)
-            response.forEach(result => {
-                document.getElementById("type").innerHTML = "<option value='" + result + "'>" + result + "</option>"
-            })
+function loadTypeFromDatabase() {
+
+    if (!ifOptionHaveLoad) {
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", "/job-api/all-option", true)
+
+        xhr.onload = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let response = JSON.parse(xhr.responseText)
+                console.log(response)
+                response.forEach(result => {
+                    document.getElementById("type").innerHTML += "<option value='" + result + "'>" + result + "</option>"
+                })
+                ifOptionHaveLoad = true
+            }
         }
+        xhr.send()
     }
-    xhr.send()
 }
 
-function loadLevelFromDatabase() {
-    let xhr = new XMLHttpRequest()
-    xhr, open('GET', "/job-api/all-level", true)
+let ifLevelHaveLoad = false
 
-    xhr.onload = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText)
-            response.forEach(result => {
-                document.getElementById("niveau").innerHTML = "<option value='" + result + "'>" + result + "</option>"
-            })
+function loadLevelFromDatabase() {
+
+    if (!ifLevelHaveLoad) {
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', "/job-api/all-level", true)
+
+        xhr.onload = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let response = JSON.parse(xhr.responseText)
+                console.log(response)
+                response.forEach(result => {
+                    document.getElementById("niveau").innerHTML += "<option value='" + result + "'>" + result + "</option>"
+                })
+                ifLevelHaveLoad = true
+            }
         }
+        xhr.send()
     }
-    xhr.send()
 }
 
 if (!sessionStorage.getItem('display')) {
@@ -131,44 +145,68 @@ else {
     }
 }
 
-if (!sessionStorage.getItem("click-access-to")) {
-    function checkIfNotesReportExists() {
-        let xhr = new XMLHttpRequest()
-        xhr.open("GET", "/job-api/check-test", true)
+function checkIfNotesReportExists(job_access) {
+    let xhr = new XMLHttpRequest()
+    xhr.open("GET", "/job-api/check-test", true)
 
-        xhr.onload = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                let response = xhr.responseText
-                if (response == "true") {
-                    sessionStorage.setItem("click-access-to", true)
-                    getEstablishmentInfo()
-                    getJobInfo()
-                }
-                else if (response == "false") {
-                    document.getElementById("job-access").setAttribute("data-toggle", "modal")
-                    document.getElementById("job-access").setAttribute("data-target", "#popupForm")
-                    sessionStorage.setItem("click-access-to", true)
-                    getEstablishmentInfo()
-                    getJobInfo()
-                }
+    xhr.onload = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let response = xhr.responseText
+            if (response == "true") {
+                // getJobInfo()
+                // getEstablishmentInfo()
+                job_access.href = "#job-predicted"
+            }
+            else if (response == "false") {
+                job_access.setAttribute("data-target", "#popupForm")
+                job_access.setAttribute("data-toggle", "modal")
+                // sessionStorage.setItem("click-access-to", true)
             }
         }
-        xhr.send()
     }
+    xhr.send()
 }
-else {
-    function checkIfNotesReportExists() {
-        console.log("button have already clicked!")
+
+document.getElementById("job-image").src = "data:image/webp;base64," + sessionStorage.getItem("job image");
+document.getElementById("job-tittle").innerHTML = sessionStorage.getItem("job name")
+document.getElementById("job-description").innerHTML = sessionStorage.getItem("job description")
+document.getElementById("establishment-image").src = "data:image/webp;base64," + sessionStorage.getItem("establishment image")
+document.getElementById("establishment-name").innerHTML = sessionStorage.getItem("establishment name")
+document.getElementById("establishment-description").innerHTML = sessionStorage.getItem("establishment description")
+document.getElementById("job-access").href = "#job-predicted"
+
+let notes = []
+
+function checkNotesValue(field) {
+
+    if (isNaN(field.value) || field.value < 7 || field.value > 20) {
+        field.value = "" //Clear the input field if the value is less than 7
+    }
+    else {
+        notes.push(parseFloat(field.value))
     }
 }
 
-if (sessionStorage.getItem("click-access-to")) {
-    document.getElementById("job-image").src = "data:image/webp;base64," + sessionStorage.getItem("job image");
-    document.getElementById("job-tittle").innerHTML = sessionStorage.getItem("job name")
-    document.getElementById("job-description").innerHTML = sessionStorage.getItem("job description")
-
-    document.getElementById("establishment-image").src = "data:image/webp;base64," + sessionStorage.getItem("establishment image")
-    document.getElementById("establishment-name").innerHTML = sessionStorage.getItem("establishment name")
-    document.getElementById("establishment-description").innerHTML = sessionStorage.getItem("establishment description")
-    document.getElementById("job-access").href = "#job-predicted"
+function mean(list) {
+    sum = list.reduce((cumulatorValue, currentValue) => cumulatorValue + currentValue)
+    return sum / list.length
 }
+
+const sendNotesForm = document.getElementById("notes-form");
+const sendNotesBtn = document.getElementById("send-notes-btn");
+
+sendNotesForm.addEventListener("submit", function(sendNotesClick) {
+    sendNotesClick.preventDefault()
+    meanValue = mean(notes)
+    if (meanValue < 10) {
+        console.log(meanValue);
+        // sendNotesBtn.disabled = true
+    }
+    else {
+        // sendNotesBtn.disabled = false
+        sendNotesForm.submit()
+        getJobInfo()
+        getEstablishmentInfo()
+        job_access.href = "#job-predicted"
+    }
+})

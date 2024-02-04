@@ -27,8 +27,6 @@ public class ModelSuggestionCour {
     @Lob
     private byte[] serialisezeModel;
 
-    
-
     public Classifier getClassifier() {
         try {
             if(serialisezeModel != null){
@@ -71,7 +69,6 @@ public class ModelSuggestionCour {
         this.serialisezeModel = serialisezeModel;
     }
 
-  
     public Long getIdModel() {
         return idModel;
     }

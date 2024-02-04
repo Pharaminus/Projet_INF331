@@ -16,6 +16,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import com.studor.orientation_student.entities.profilejobprediction.Job;
 import com.studor.orientation_student.entities.profilejobprediction.Notes;
+import com.studor.orientation_student.entities.profilejobprediction.NotesReport;
 import com.studor.orientation_student.entities.profilejobprediction.User;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.JobRepository;
 import com.studor.orientation_student.manager.repositories.profilejobpredictrepository.UserRepository;
@@ -38,7 +39,8 @@ public class JobPredictService {
         if (session.getAttribute("email") != null) {
             String emailSession = (String) session.getAttribute("email");
             User user = userRepository.findByEmail(emailSession);
-            List<Notes> notes = user.getProfil().getNotesReport().getNotes();
+            List<NotesReport> notesReports = user.getProfil().getNotesReports();
+            List<Notes> notes = notesReports.get(notesReports.size() - 1).getNotes();
             System.out.println("======---Notes---======>Math: " + notes.get(0).getNote() + "-=Phy: "
                     + notes.get(1).getNote() + "-=Info: " + notes.get(2).getNote());
             double mathNotes = notes.get(0).getNote();
@@ -53,7 +55,7 @@ public class JobPredictService {
                     / totalCoef;
             String predictedClassValue = WekaClassify.trainModel(trainingDataFile, mathNotes, phyNotes, infoNotes,
                     Math.round(mean));
-            Job job = jobsRepository.findByNom(predictedClassValue);
+            Job job = jobsRepository.findByNomIgnoreCase(predictedClassValue);
             user.getProfil().setJob(job);
             userRepository.save(user);
             // System.out.println("==============>>>>>>>>>>>>>>Job(" + "Name: " +

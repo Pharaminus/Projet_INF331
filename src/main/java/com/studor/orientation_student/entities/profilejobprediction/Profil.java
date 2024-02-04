@@ -16,6 +16,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -44,13 +45,13 @@ public class Profil {
     @ManyToOne
     private Job job;
 
-    @OneToOne(mappedBy = "profil")
-    private NotesReport notesReport;
+    @OneToMany(mappedBy = "profil")
+    private List<NotesReport> notesReports;
 
     @OneToOne(mappedBy = "profil")
     private User user;
 
-    @OneToMany(mappedBy = "profil")
+    @ManyToMany
     private List<Establishment> establishments;
 
     @OneToMany(mappedBy = "profil", cascade = CascadeType.ALL)
@@ -65,7 +66,7 @@ public class Profil {
 
     public Profil(String nom, String prenom, LocalDate dateDeNaissance, String sexe, String loisirs,
             String metierDuPere, String metierDeLaMere, String religion, String sport, Blob photoProfile, Job job,
-            NotesReport notesReport, User user, List<Establishment> establishments, List<Programme> programmes,
+            List<NotesReport> notesReports, User user, List<Establishment> establishments, List<Programme> programmes,
             ObjectifUtilisateur objectifProfil, List<NiveauAcademique> niveauAcademiques) {
         this.nom = nom;
         this.prenom = prenom;
@@ -78,7 +79,7 @@ public class Profil {
         this.sport = sport;
         this.photoProfile = photoProfile;
         this.job = job;
-        this.notesReport = notesReport;
+        this.notesReports = notesReports;
         this.user = user;
         this.establishments = establishments;
         this.programmes = programmes;
@@ -181,14 +182,6 @@ public class Profil {
         this.job = job;
     }
 
-    public NotesReport getNotesReport() {
-        return notesReport;
-    }
-
-    public void setNotesReport(NotesReport notesReport) {
-        this.notesReport = notesReport;
-    }
-
     public User getUser() {
         return user;
     }
@@ -235,5 +228,13 @@ public class Profil {
 
     public void setNiveauAcademiques(List<NiveauAcademique> niveauAcademiques) {
         this.niveauAcademiques = niveauAcademiques;
+    }
+
+    public List<NotesReport> getNotesReports() {
+        return notesReports;
+    }
+
+    public void setNotesReports(List<NotesReport> notesReports) {
+        this.notesReports = notesReports;
     }
 }

@@ -14,5 +14,5 @@ import java.util.List;
 public interface NotesReportRepository extends JpaRepository<NotesReport, Long>{
     List<NotesReport> findByMention(String mention);
     List<NotesReport> findByMoyenne(double moyenne);
-    NotesReport findByProfil(Profil profil);
+    List<NotesReport> findByProfil(Profil profil);
 }

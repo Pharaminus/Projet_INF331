@@ -303,7 +303,7 @@ a:focus {
   text-align: center;
   position: relative;
   z-index: 5;
-  margin: 35px 25px 0 25px;
+  margin: 35px 35px 0px 30px;
 }
 
 .do_section .do_container .box .img-box {
@@ -337,23 +337,26 @@ a:focus {
 .do_section .do_container .arrow_bg::before {
   content: "";
   position: absolute;
-  top: -23px;
-  left: -17px;
-  width: 262%;
-  height: 90%;
+  top: -15px;
+  left: 10px;
+  width: 200%;
+  height: 80%;
   z-index: 3;
   background-size: cover;
 }
 
 .do_section .do_container .arrow-start::before {
+  margin-left: -20px;
   background-image: url(/images/job-establishment-images/arrow-start.png);
 }
 
 .do_section .do_container .arrow-middle::before {
+  margin-left: -10px;
   background-image: url(/images/job-establishment-images/arrow-middle.png);
 }
 
 .do_section .do_container .arrow-end::before {
+  margin-left: 5px;
   background-image: url(/images/job-establishment-images/arrow-end.png);
 }
 

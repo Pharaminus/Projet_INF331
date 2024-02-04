@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.studor.orientation_student.entities.profilejobprediction.Job;
-import com.studor.orientation_student.entities.profilejobprediction.NotesReport;
 import com.studor.orientation_student.entities.profilejobprediction.Profil;
 import com.studor.orientation_student.entities.profilejobprediction.User;
 
@@ -19,7 +18,6 @@ public interface ProfilRepository extends JpaRepository<Profil, Long>{
     List<Profil> findByLoisirs(String loisirs);
     List<Profil> findByNom(String nom);
     List<Profil> findByPhotoProfile(Blob photoProfile);
-    Profil findByNotesReport(NotesReport notesReport);
     List<Profil> findByReligion(String religion);
     Profil findByUser(User user);
     List<Profil> findByJob(Job job);

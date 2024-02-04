@@ -52,7 +52,6 @@
 /home/gedeontiga/Documents/INFO-L3/INF-331/Projet_INF331-gedeon/src/main/java/com/studor/orientation_student/manager/repositories/profilejobpredictrepository/ProfilRepository.java
 /home/gedeontiga/Documents/INFO-L3/INF-331/Projet_INF331-gedeon/src/main/java/com/studor/orientation_student/manager/repositories/establishmentsuggestcontroller/EstablishmentRepository.java
 /home/gedeontiga/Documents/INFO-L3/INF-331/Projet_INF331-gedeon/src/main/java/com/studor/orientation_student/manager/controllers/suggestionCourRestController/DataController.java
-/home/gedeontiga/Documents/INFO-L3/INF-331/Projet_INF331-gedeon/src/main/java/com/studor/orientation_student/manager/services/profilepredictionservices/tes.java
 /home/gedeontiga/Documents/INFO-L3/INF-331/Projet_INF331-gedeon/src/main/java/com/studor/orientation_student/manager/repositories/profilejobpredictrepository/MatterRepository.java
 /home/gedeontiga/Documents/INFO-L3/INF-331/Projet_INF331-gedeon/src/main/java/com/studor/orientation_student/manager/repositories/profilejobpredictrepository/OptionRepository.java
 /home/gedeontiga/Documents/INFO-L3/INF-331/Projet_INF331-gedeon/src/main/java/com/studor/orientation_student/manager/controllers/OrientationProfessionelleResController.java

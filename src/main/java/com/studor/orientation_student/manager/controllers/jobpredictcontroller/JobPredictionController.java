@@ -37,7 +37,7 @@ public class JobPredictionController {
         String result = notesReportSaverService.saveNotesReport(session, mathNote, phyNote, infoNote, chmNote, engNote,
                 fraNote, type, niveau);
         if (result == "OK") {
-            return new RedirectView("/home-predict");
+            return new RedirectView("/job/home-predict");
         } else {
             return new RedirectView("/login/form");
         }

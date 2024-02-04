@@ -148,7 +148,7 @@
                       <h1 id="detail-box-title-1">job prediction</h1>
                       <p id="text-details-1"></p>
                       <div class="">
-                        <a id="job-access" class="if-notes-absent-display-form" href="#job-predicted" onclick="checkIfNotesReportExists()">
+                        <a id="job-access" onclick="checkIfNotesReportExists(this)">
                           Access to
                         </a>
                       </div>
@@ -168,7 +168,7 @@
                       <h1 id="detail-box-title-2">Establishment suggestion</h1>
                       <p id="text-details-2"></p>
                       <div class="">
-                        <a id="establishment-access" href="#establishment-suggested" th:href="@{/establishment/suggested}">
+                        <a id="establishment-access" th:href="@{/establishment/suggested}">
                           Access to
                         </a>
                       </div>
@@ -185,7 +185,7 @@
   </div>
 
   <div class="modal fade" id="popupForm" tabindex="-1" role="dialog" aria-labelledby="popupFormLabel"
-    aria-hidden="true">
+        aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div id="modal-content" class="modal-content">
         <div class="modal-header">
@@ -195,12 +195,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <form id="notes-form" method="post" class="popup-form">
+          <form id="notes-form" method = "post" action = "/job/send-notes" class="popup-form">
             <div class="form-group">
               <label for="type">Serie: </label>
-              <select id="type" class="form-control" name="type" onchange="loadTypeFromDatabase()" required>
-                <option value="placeholder" disabled selected hidden>Select the type of your
-                  notes report</option>
+              <select id="type" class="form-control" name="type" onclick="loadTypeFromDatabase()" required>
+                <option value disabled selected hidden>Select the type of your notes report</option>
                 <!-- <option id="C" value="C">C</option>
                                         <option id="A" value="A">A</option>
                                         <option id="D" value="D">D</option> -->
@@ -208,30 +207,30 @@
             </div>
             <div class="form-group">
               <label for="niveau">Niveau: </label>
-              <select id="niveau" class="form-control" name="niveau" onchange="loadLevelFromDatabase()" required>
-                <option value="placeholder" disabled selected hidden>Select your level</option>
+              <select id="niveau" class="form-control" name="niveau" onclick="loadLevelFromDatabase()" required>
+                <option value disabled selected hidden>Select your level</option>
                 <!-- <option id="Tle" value="Tle">Tle</option>
                                         <option id="ING-HUA-1" value="ING-HUA-1">ING-HUA-1</option> -->
               </select>
             </div>
             <div class="form-group">
               <label for="mathNote">Note de Mathematique: </label>
-              <input type="number" class="form-control" name="mathNote" placeholder="Enter your Mathematique note"
+              <input type="number" onblur="checkNotesValue(this)" class="form-control" name="mathNote" placeholder="Enter your Mathematique note"
                 id="mathNote" required>
             </div>
             <div class="form-group">
               <label for="phyNote">Note de Physique: </label>
-              <input type="number" name="phyNote" class="form-control" placeholder="Enter your Physique note"
+              <input type="number" onblur="checkNotesValue(this)" name="phyNote" class="form-control" placeholder="Enter your Physique note"
                 id="phyNote" required>
             </div>
             <div class="form-group">
               <label for="infoNote">Note d' Informatique: </label>
-              <input type="number" name="infoNote" class="form-control" placeholder="Enter your Computer Science note "
+              <input type="number" onblur="checkNotesValue(this)" name="infoNote" class="form-control" placeholder="Enter your Computer Science note "
                 id="infoNote" required>
             </div>
             <div class="form-group">
               <label for="chmNote">Note de Chimie: </label>
-              <input type="number" name="chmNote" class="form-control" placeholder="Enter your Chemistry note"
+              <input type="number" onblur="checkNotesValue(this)" name="chmNote" class="form-control" placeholder="Enter your Chemistry note"
                 id="chmNote" required>
             </div>
             <div class="form-group">
@@ -241,11 +240,11 @@
             </div>
             <div class="form-group">
               <label for="fraNote">Note de Francais: </label>
-              <input type="number" name="fraNote" class="form-control" placeholder="Enter your French Language note"
+              <input type="number" onblur="checkNotesValue(this)" name="fraNote" class="form-control" placeholder="Enter your French Language note"
                 id="fraNote" required>
             </div>
             <div class="form-group d-flex justify-content-center">
-              <button type="submit">Send </button>
+              <button type="submit" id="send-notes-btn">Send </button>
             </div>
             </form>
         </div>
@@ -302,7 +301,7 @@
           </div>
           <div class="detail-box">
             <h6>
-              Data scientist
+              Network admin
             </h6>
           </div>
         </div>
@@ -312,7 +311,7 @@
           </div>
           <div class="detail-box">
             <h6>
-              Network Admin
+              Data scientist
             </h6>
           </div>
         </div>
@@ -705,7 +704,7 @@
     handleText()
   </script>
   <script src="/js/job-establishment-js/nav-display-background.js"></script>
-  <script src="/js/job-establishment-js/load-form-and-data.js" async="true">
+  <script src="/js/job-establishment-js/load-form-and-data.js">
   </script>
   <!-- owl carousel script 
     -->

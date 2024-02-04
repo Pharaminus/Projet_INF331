@@ -44,8 +44,9 @@ public class NotesReportSaverService {
         String userEmail = (String)session.getAttribute("email");
         if (session.getAttribute("email") != null) {
             User user = userRepository.findByEmail(userEmail);
-            NotesReport notesReport = user.getProfil().getNotesReport();
-            if(notesReport == null){
+            List<NotesReport> notesReports = user.getProfil().getNotesReports();
+            // NotesReport notesReport = notesReports.get(notesReports.size());
+            if(notesReports.isEmpty()){
                 System.out.println("hello");
                 return "false";
             }
